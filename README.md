@@ -33,7 +33,7 @@ Custom properties:
 
 `loading={true|false}` - displays a loading or not, default is `false`.
 
-```js
+```jsx
 <XButton loading type="submit">
   Enviar
 </XButton>;
@@ -46,7 +46,7 @@ Custom properties:
 Rather than import your component class from `material-ui`, import it from
 `xbrain-react-components`.
 
-```js
+```jsx
 import { XButton } from 'xbrain-react-components';
 
 class MyForm extends Component {
