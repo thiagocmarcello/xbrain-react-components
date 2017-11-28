@@ -53,7 +53,7 @@ class MyForm extends Component {
   render() {
     return (
       <XButton loading type="submit">
-        Enviar
+        Send
       </XButton>
     );
   }
