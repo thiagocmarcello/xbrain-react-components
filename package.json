@@ -1,0 +1,48 @@
+{
+  "name": "xbrain-react-components",
+  "version": "1.0.0",
+  "description": "Useful React Components for daily use.",
+  "main": "dist/xbrain-react-components.min.js",
+  "directories": {
+    "src": "src"
+  },
+  "scripts": {
+    "test": "jest --notify --verbose",
+    "build": "webpack",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xbrain-dev/xbrain-react-components.git"
+  },
+  "keywords": ["xbrain", "xbrain react components", "react components"],
+  "author": "Diego Rodrigues Vieira",
+  "license": "MIT",
+  "dependencies": {
+    "material-ui": "^1.0.0-beta.20",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.2",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.7.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "jest": "^21.2.1",
+    "webpack": "^3.6.0"
+  },
+  "peerDependencies": {
+    "material-ui": "^1.0.0-beta.20",
+    "react": "^16.0.0"
+  }
+}
