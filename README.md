@@ -29,10 +29,10 @@ Using [npm](https://www.npmjs.org/):
 
 ## Available Components
 
-* [XButton](#xbutton) - [MU](https://material-ui-next.com/demos/buttons/)
+* [XButton](#xbutton) - [mui](https://material-ui-next.com/demos/buttons/)
 * [XExternalRedirect](#xexternalredirect) - Redirects to an external URL
 
-> All `[MU]` components have the
+> All `[mui]` components have the
 > [material-ui](https://github.com/mui-org/material-ui.git) props. However, we
 > added new properties that will be listed as a custom property.
 
