@@ -29,41 +29,40 @@ Using [npm](https://www.npmjs.org/):
 
 ## Available Components
 
-All components have the
-[material-ui](https://github.com/mui-org/material-ui.git) settings. However, we
-added new properties that will be listed in each component below.
+* [XButton](#xbutton) - [MU](https://material-ui-next.com/demos/buttons/)
+* [XExternalRedirect](#xexternalredirect) - Redirects to an external URL
 
-* [XButton](https://material-ui-next.com/demos/buttons/)
+> All `[MU]` components have the
+> [material-ui](https://github.com/mui-org/material-ui.git) props. However, we
+> added new properties that will be listed as a custom property.
 
-Custom properties:
+---
 
-`loading={true|false}` - displays a loading or not, default is `false`.
+### XButton
+
+Just a button.
+
+#### Custom properties
+
+`loading={true|false}` (optional) - displays a loading or not, default is
+`false`.
 
 ```jsx
 <XButton loading type="submit">
-  Enviar
+  Send
 </XButton>;
 ```
 
 ---
 
-## Usage
+### XExternalRedirect
 
-Rather than import your component class from `material-ui`, import it from
-`xbrain-react-components`.
+Redirects to an external URL.
+
+#### Properties
+
+`uri={string}` (required) - URL you want to redirect
 
 ```jsx
-import { XButton } from 'xbrain-react-components';
-
-class MyForm extends Component {
-  render() {
-    return (
-      <XButton loading type="submit">
-        Send
-      </XButton>
-    );
-  }
-}
-
-export default MyForm;
+<XExternalRedirect uri="https://google.com" />;
 ```
