@@ -6,8 +6,7 @@ import { ICON } from './../../config/styles';
 
 const styles = () => ({
   root: {
-    display: 'flex',
-    alignItems: 'center',
+    display: 'inline-block',
   },
   wrapper: {
     position: 'relative',
