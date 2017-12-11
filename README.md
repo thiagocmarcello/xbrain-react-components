@@ -47,10 +47,16 @@ Just a button.
 `loading={true|false}` (optional) - displays a loading or not, default is
 `false`.
 
+`gutter={all|top|right|bottom|left}` (optional) - adds extra space in chosen direction.
+
 ```jsx
-<XButton loading type="submit">
+<XButton gutter="right" loading type="submit">
+  Cancel
+</XButton>
+
+<XButton gutter="left" loading type="submit">
   Send
-</XButton>;
+</XButton>
 ```
 
 ---
@@ -64,5 +70,5 @@ Redirects to an external URL.
 `uri={string}` (required) - URL you want to redirect
 
 ```jsx
-<XExternalRedirect uri="https://google.com" />;
+<XExternalRedirect uri="https://google.com" />
 ```
