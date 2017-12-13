@@ -10,6 +10,7 @@ const styles = theme => ({
   },
   wrapper: {
     position: 'relative',
+    display: 'inline-block',
   },
   buttonProgress: {
     position: 'absolute',
