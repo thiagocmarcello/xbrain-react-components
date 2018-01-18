@@ -12,6 +12,8 @@ const config = {
   externals: {
     'material-ui': 'material-ui',
     'material-ui/styles': 'material-ui/styles',
+    'material-ui/transitions': 'material-ui/transitions',
+    'material-ui/List': 'material-ui/List',
     'prop-types': 'prop-types',
     react: 'react',
   },
