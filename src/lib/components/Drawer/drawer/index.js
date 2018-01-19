@@ -75,7 +75,10 @@ const styles = theme => ({
     border: 0,
     cursor: 'pointer',
     display: 'flex',
-    paddingRight: theme.spacing.gutter,
+    paddingRight: 0,
+    paddingLeft: 0,
+    paddingTop: 0,
+    paddingBottom: 0,
     width: '100%',
     '&:hover': {
       textDecoration: 'none',
