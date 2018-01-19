@@ -86,8 +86,8 @@ class CollapseItem extends PureComponent {
 
 CollapseItem.propTypes = {
   classes: PropTypes.object.isRequired,
-  openMd: PropTypes.bool.isRequired,
-  toggleDrawerMd: PropTypes.func.isRequired,
+  openMd: PropTypes.bool,
+  toggleDrawerMd: PropTypes.func,
   data: PropTypes.shape({
     name: PropTypes.string.isRequired,
     icon: PropTypes.any.isRequired,
