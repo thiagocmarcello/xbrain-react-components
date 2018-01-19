@@ -40,11 +40,16 @@ class Menu extends PureComponent {
   }
 }
 
+Menu.defaultProps = {
+  openMd: null,
+  toggleDrawerMd: null,
+};
+
 Menu.propTypes = {
   classes: PropTypes.object.isRequired,
   data: PropTypes.array.isRequired,
-  openMd: PropTypes.bool.isRequired,
-  toggleDrawerMd: PropTypes.func.isRequired,
+  openMd: PropTypes.bool,
+  toggleDrawerMd: PropTypes.func,
   expandLessIcon: PropTypes.func.isRequired,
   expandMoreIcon: PropTypes.func.isRequired,
 };

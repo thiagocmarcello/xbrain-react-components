@@ -84,6 +84,11 @@ class CollapseItem extends PureComponent {
   }
 }
 
+CollapseItem.defaultProps = {
+  openMd: null,
+  toggleDrawerMd: null,
+};
+
 CollapseItem.propTypes = {
   classes: PropTypes.object.isRequired,
   openMd: PropTypes.bool,
