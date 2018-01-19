@@ -10,7 +10,7 @@ const drawerClose = 56;
 const styles = theme => ({
   appBar: {
     backgroundColor: lighten(theme.palette.grey[900], 0.06),
-    boxShadow: 'none',
+    boxShadow: `-2px 0px 0px 0px ${lighten(theme.palette.grey[900], 0.06)}`,
     [theme.breakpoints.up('md')]: {
       width: `calc(100% - ${drawerClose}px)`,
       zIndex: theme.zIndex.drawer + 1,
