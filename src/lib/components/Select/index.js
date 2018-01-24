@@ -11,15 +11,26 @@ const styles = theme => ({
     marginTop: theme.spacing.unit,
   },
   select: {
-    border: `1px solid ${theme.palette.grey[100]}`,
     borderRadius: 2,
     boxSizing: 'border-box',
     height: 36,
     padding: '7px 0 7px 12px',
     '&:focus': {
       background: 'transparent',
-      borderColor: theme.palette.primary.main,
       borderRadius: 2,
+    },
+  },
+  selectError: {
+    border: `1px solid ${theme.palette.error.main}`,
+    '&:focus': {
+      borderColor: theme.palette.error.main,
+      boxShadow: `0 0 0 0.2rem rgba(${hexToRgb(theme.palette.error.main)}, .25)`,
+    },
+  },
+  selectNoError: {
+    border: `1px solid ${theme.palette.grey[100]}`,
+    '&:focus': {
+      borderColor: theme.palette.primary.main,
       boxShadow: `0 0 0 0.2rem rgba(${hexToRgb(theme.palette.primary.main)}, .25)`,
     },
   },
@@ -35,11 +46,14 @@ const styles = theme => ({
 });
 
 const Select = ({
-  classes, label, name, InputLabelProps, ...props
+  classes, label, name, InputLabelProps, error, ...props
 }) => (
   <Fragment>
     <InputLabel
-      classes={{ root: classes.inputLabelRoot }}
+      error={false}
+      classes={{
+        root: classes.inputLabelRoot,
+      }}
       shrink
       htmlFor={name}
       {...InputLabelProps}
@@ -50,7 +64,7 @@ const Select = ({
       disableUnderline
       classes={{
         root: classes.root,
-        select: classes.select,
+        select: [classes.select, error ? classes.selectError : classes.selectNoError].join(' '),
         icon: classes.icon,
         disabled: classes.disabled,
       }}
@@ -60,11 +74,13 @@ const Select = ({
 );
 
 Select.defaultProps = {
+  error: false,
   InputLabelProps: null,
 };
 
 Select.propTypes = {
   classes: PropTypes.object.isRequired,
+  error: PropTypes.bool,
   InputLabelProps: PropTypes.object,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,

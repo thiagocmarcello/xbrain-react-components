@@ -5,13 +5,22 @@ import { TextField as TextFieldMui } from 'material-ui';
 import { hexToRgb } from '../../utils/color';
 
 const styles = theme => ({
-  textFieldRoot: {
+  root: {
     padding: 0,
     'label + &': {
       marginTop: theme.spacing.unit * 3,
     },
   },
-  textFieldInput: {
+  error: {
+    '& > input': {
+      borderColor: theme.palette.error.main,
+      '&:focus': {
+        borderColor: theme.palette.error.main,
+        boxShadow: `0 0 0 0.2rem rgba(${hexToRgb(theme.palette.error.main)}, .25)`,
+      },
+    },
+  },
+  input: {
     borderRadius: 2,
     backgroundColor: theme.palette.common.white,
     border: `1px solid ${theme.palette.grey[100]}`,
@@ -28,26 +37,30 @@ const styles = theme => ({
       background: theme.palette.grey[50],
     },
   },
-  textFieldFormLabel: {
+  label: {
     fontSize: theme.typography.pxToRem(18),
   },
 });
 
 const TextField = ({
-  classes, InputProps, InputLabelProps, ...props
+  classes, name, InputProps, error, InputLabelProps, ...props
 }) => (
   <TextFieldMui
+    error={error}
+    id={name}
     InputProps={{
       disableUnderline: true,
       classes: {
-        root: classes.textFieldRoot,
-        input: classes.textFieldInput,
+        root: classes.root,
+        error: classes.error,
+        input: classes.input,
       },
       ...InputProps,
     }}
     InputLabelProps={{
       shrink: true,
-      className: classes.textFieldFormLabel,
+      className: classes.label,
+      error: false,
       ...InputLabelProps,
     }}
     {...props}
@@ -57,9 +70,13 @@ const TextField = ({
 TextField.defaultProps = {
   InputProps: null,
   InputLabelProps: null,
+  error: false,
+  name: null,
 };
 
 TextField.propTypes = {
+  error: PropTypes.bool,
+  name: PropTypes.string,
   classes: PropTypes.object.isRequired,
   InputProps: PropTypes.object,
   InputLabelProps: PropTypes.object,
