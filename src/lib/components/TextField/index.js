@@ -24,6 +24,9 @@ const styles = theme => ({
       borderColor: theme.palette.primary.main,
       boxShadow: `0 0 0 0.2rem rgba(${hexToRgb(theme.palette.primary.main)}, .25)`,
     },
+    '&:disabled': {
+      background: theme.palette.grey[50],
+    },
   },
   textFieldFormLabel: {
     fontSize: theme.typography.pxToRem(18),
