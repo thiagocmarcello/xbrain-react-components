@@ -14,6 +14,7 @@ const config = {
     'material-ui/styles': 'material-ui/styles',
     'material-ui/transitions': 'material-ui/transitions',
     'material-ui/List': 'material-ui/List',
+    'material-ui/styles/colorManipulator': 'material-ui/styles/colorManipulator',
     'prop-types': 'prop-types',
     react: 'react',
   },
