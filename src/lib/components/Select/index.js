@@ -44,7 +44,7 @@ const Select = ({
       htmlFor={name}
       {...InputLabelProps}
     >
-      {name}
+      {label}
     </InputLabel>
     <SelectMui
       disableUnderline
