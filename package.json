@@ -1,6 +1,6 @@
 {
   "name": "xbrain-react-components",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "Useful React Components for daily use.",
   "main": "dist/xbrain-react-components.min.js",
   "directories": {
@@ -42,7 +42,7 @@
     "webpack": "^3.10.0"
   },
   "peerDependencies": {
-    "material-ui": "^1.0.0-beta.20",
+    "material-ui": "^1.0.0-beta.30",
     "react": "^16.0.0"
   }
 }
