@@ -43,9 +43,9 @@ const styles = theme => ({
   },
 });
 
-const TEXT_TRANSFORM_UPPERCASE = 'uppercase';
-const TEXT_TRANSFORM_LOWERCASE = 'lowercase';
 const TEXT_TRANSFORM_ANY = 'any';
+const TEXT_TRANSFORM_LOWERCASE = 'lowercase';
+const TEXT_TRANSFORM_UPPERCASE = 'uppercase';
 
 const normalizeValue = (value, { textTransform, type }) => {
   if (typeof value !== 'string' || type === 'password') return value;
