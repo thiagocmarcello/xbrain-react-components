@@ -37,6 +37,7 @@ const styles = theme => ({
     },
   },
   menuIcon: {
+    color: theme.palette.common.white,
     margin: '0 4px 0 0',
     [theme.breakpoints.up('sm')]: {
       margin: '0 4px',
@@ -59,7 +60,6 @@ class AppBarTemplate extends PureComponent {
         <Hidden mdUp>
           <Toolbar className={classes.toolbar} disableGutters>
             <IconButton
-              color="contrast"
               aria-label="open drawer"
               className={classes.menuIcon}
               onClick={this.handleDrawerSmToggle}
