@@ -1,7 +1,8 @@
+import { TextField as TextFieldMui } from 'material-ui';
 import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { TextField as TextFieldMui } from 'material-ui';
+
 import { hexToRgb } from '../../utils/color';
 
 const styles = theme => ({
@@ -46,8 +47,8 @@ const TEXT_TRANSFORM_UPPERCASE = 'uppercase';
 const TEXT_TRANSFORM_LOWERCASE = 'lowercase';
 const TEXT_TRANSFORM_ANY = 'any';
 
-const normalizeValue = (value, textTransform) => {
-  if (typeof value !== 'string') return value;
+const normalizeValue = (value, { textTransform, type }) => {
+  if (typeof value !== 'string' || type === 'password') return value;
 
   switch (textTransform) {
     case TEXT_TRANSFORM_UPPERCASE:
@@ -65,13 +66,15 @@ const TextField = ({
   InputProps,
   error,
   textTransform,
-  value,
   InputLabelProps,
+  onChange,
+  type,
   ...props
 }) => (
   <TextFieldMui
     error={error}
     id={name}
+    type={type}
     InputProps={{
       disableUnderline: true,
       classes: {
@@ -87,31 +90,45 @@ const TextField = ({
       error: false,
       ...InputLabelProps,
     }}
-    value={normalizeValue(value, textTransform)}
     {...props}
+    onChange={(event) => {
+      const newEvent = event;
+
+      newEvent.target.value = normalizeValue(event.target.value, {
+        textTransform,
+        type,
+      });
+
+      if (onChange) {
+        onChange(newEvent);
+      }
+    }}
   />
 );
 
 TextField.defaultProps = {
-  InputProps: null,
-  InputLabelProps: null,
   error: false,
+  InputLabelProps: null,
+  InputProps: null,
   name: null,
-  textTransform: 'uppercase',
+  onChange: null,
+  textTransform: TEXT_TRANSFORM_UPPERCASE,
+  type: 'text',
 };
 
 TextField.propTypes = {
-  error: PropTypes.bool,
-  name: PropTypes.string,
   classes: PropTypes.object.isRequired,
-  InputProps: PropTypes.object,
+  error: PropTypes.bool,
   InputLabelProps: PropTypes.object,
+  InputProps: PropTypes.object,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  type: PropTypes.string,
   textTransform: PropTypes.oneOf([
-    TEXT_TRANSFORM_UPPERCASE,
-    TEXT_TRANSFORM_LOWERCASE,
     TEXT_TRANSFORM_ANY,
+    TEXT_TRANSFORM_LOWERCASE,
+    TEXT_TRANSFORM_UPPERCASE,
   ]),
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 };
 
 export default withStyles(styles)(TextField);
