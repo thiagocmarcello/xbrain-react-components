@@ -63,7 +63,7 @@ class ActionButton extends PureComponent {
 }
 
 ActionButton.propTypes = {
-  icon: PropTypes.node.isRequired,
+  icon: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({
     content: PropTypes.node.isRequired,
     data: PropTypes.any,

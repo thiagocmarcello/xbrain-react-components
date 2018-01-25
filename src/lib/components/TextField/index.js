@@ -42,8 +42,32 @@ const styles = theme => ({
   },
 });
 
+const TEXT_TRANSFORM_UPPERCASE = 'uppercase';
+const TEXT_TRANSFORM_LOWERCASE = 'lowercase';
+const TEXT_TRANSFORM_ANY = 'any';
+
+const normalizeValue = (value, textTransform) => {
+  if (typeof value !== 'string') return value;
+
+  switch (textTransform) {
+    case TEXT_TRANSFORM_UPPERCASE:
+      return value.toUpperCase();
+    case TEXT_TRANSFORM_LOWERCASE:
+      return value.toLowerCase();
+    default:
+      return value;
+  }
+};
+
 const TextField = ({
-  classes, name, InputProps, error, InputLabelProps, ...props
+  classes,
+  name,
+  InputProps,
+  error,
+  textTransform,
+  value,
+  InputLabelProps,
+  ...props
 }) => (
   <TextFieldMui
     error={error}
@@ -63,6 +87,7 @@ const TextField = ({
       error: false,
       ...InputLabelProps,
     }}
+    value={normalizeValue(value, textTransform)}
     {...props}
   />
 );
@@ -72,6 +97,7 @@ TextField.defaultProps = {
   InputLabelProps: null,
   error: false,
   name: null,
+  textTransform: 'uppercase',
 };
 
 TextField.propTypes = {
@@ -80,6 +106,12 @@ TextField.propTypes = {
   classes: PropTypes.object.isRequired,
   InputProps: PropTypes.object,
   InputLabelProps: PropTypes.object,
+  textTransform: PropTypes.oneOf([
+    TEXT_TRANSFORM_UPPERCASE,
+    TEXT_TRANSFORM_LOWERCASE,
+    TEXT_TRANSFORM_ANY,
+  ]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 };
 
 export default withStyles(styles)(TextField);
