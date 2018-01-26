@@ -1,9 +1,17 @@
-import React, { PureComponent } from 'react';
 import { Menu, IconButton } from 'material-ui';
 import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
+import withStyles from 'material-ui/styles/withStyles';
+
 import Item from './item';
 
 const ITEM_HEIGHT = 48;
+
+const styles = () => ({
+  rootIconButtonGutterLess: {
+    width: 'auto',
+  },
+});
 
 class ActionButton extends PureComponent {
   state = {
@@ -20,7 +28,9 @@ class ActionButton extends PureComponent {
 
   render() {
     const { anchorEl } = this.state;
-    const { options, icon: Icon } = this.props;
+    const {
+      options, icon: Icon, classes, gutter,
+    } = this.props;
 
     return (
       <div>
@@ -38,6 +48,7 @@ class ActionButton extends PureComponent {
             anchorEl={this.state.anchorEl}
             open={Boolean(anchorEl)}
             onClose={this.handleClose}
+            className={!gutter ? classes.rootIconButtonGutterLess : null}
             PaperProps={{
               style: {
                 maxHeight: ITEM_HEIGHT * 4.5,
@@ -62,6 +73,10 @@ class ActionButton extends PureComponent {
   }
 }
 
+ActionButton.defaultProps = {
+  gutter: true,
+};
+
 ActionButton.propTypes = {
   icon: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({
@@ -69,6 +84,8 @@ ActionButton.propTypes = {
     data: PropTypes.any,
     onClick: PropTypes.func,
   })).isRequired,
+  classes: PropTypes.object.isRequired,
+  gutter: PropTypes.bool,
 };
 
-export default ActionButton;
+export default withStyles(styles)(ActionButton);
