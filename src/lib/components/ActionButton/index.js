@@ -39,6 +39,7 @@ class ActionButton extends PureComponent {
           aria-owns={anchorEl ? 'action-menu' : null}
           aria-haspopup="true"
           onClick={this.handleClick}
+          classes={!gutter ? { root: classes.rootIconButtonGutterLess } : null}
         >
           <Icon />
         </IconButton>
@@ -48,7 +49,6 @@ class ActionButton extends PureComponent {
             anchorEl={this.state.anchorEl}
             open={Boolean(anchorEl)}
             onClose={this.handleClose}
-            className={!gutter ? classes.rootIconButtonGutterLess : null}
             PaperProps={{
               style: {
                 maxHeight: ITEM_HEIGHT * 4.5,
