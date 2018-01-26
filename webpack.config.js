@@ -17,6 +17,8 @@ const config = {
     'material-ui/Input': 'material-ui/Input',
     'material-ui/styles/colorManipulator': 'material-ui/styles/colorManipulator',
     'prop-types': 'prop-types',
+    'material-ui/Progress': 'material-ui/Progress',
+    'material-ui/Table': 'material-ui/Table',
     react: 'react',
   },
   module: {

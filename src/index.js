@@ -6,6 +6,7 @@ import XTextField from './lib/components/TextField';
 import XSelect from './lib/components/Select';
 import XActionButton from './lib/components/ActionButton';
 import XPaper from './lib/components/Paper';
+import XTableEmpty from './lib/components/TableEmpty';
 
 export {
   XButton,
@@ -16,4 +17,5 @@ export {
   XSelect,
   XActionButton,
   XPaper,
+  XTableEmpty,
 };
