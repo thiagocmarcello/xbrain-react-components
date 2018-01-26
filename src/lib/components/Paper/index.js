@@ -4,18 +4,29 @@ import React, { PureComponent } from 'react';
 
 const styles = theme => ({
   paper: theme.mixins.gutters({
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
+    paddingTop: theme.spacing.unit * 3,
+    paddingBottom: theme.spacing.unit * 3,
   }),
+  grey: {
+    backgroundColor: theme.palette.grey[50],
+  },
 });
-
 class XPaper extends PureComponent {
   render() {
-    const { classes, ...rest } = this.props;
+    const {
+      classes, children, grey, ...rest
+    } = this.props;
+
+    const greyClassName = grey ? classes.grey : null;
 
     return (
-      <Paper className={classes.paper} {...rest}>
-        {this.props.children}
+      <Paper
+        elevation={grey ? 3 : 2}
+        classes={{ root: greyClassName }}
+        className={classes.paper}
+        {...rest}
+      >
+        {children}
       </Paper>
     );
   }
@@ -23,11 +34,13 @@ class XPaper extends PureComponent {
 
 XPaper.defaultProps = {
   children: null,
+  grey: false,
 };
 
 XPaper.propTypes = {
   classes: PropTypes.object.isRequired,
   children: PropTypes.node,
+  grey: PropTypes.bool,
 };
 
 export default withStyles(styles)(XPaper);
