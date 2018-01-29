@@ -9,9 +9,10 @@ import { hexToRgb } from '../../utils/color';
 const styles = theme => ({
   inputRoot: {
     color: theme.typography.body1.color,
+    fontSize: theme.typography.pxToRem(theme.typography.fontSize),
   },
   labelRoot: {
-    color: `rgba(${hexToRgb(theme.typography.body1.color)}, 0.9)`,
+    color: `rgba(${hexToRgb(theme.typography.body1.color)}, 0.87)`,
     opacity: 0.8,
   },
 });
@@ -43,7 +44,7 @@ DisplayInfo.defaultProps = {
 
 DisplayInfo.propTypes = {
   label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   formControlProps: PropTypes.object,
   textFieldProps: PropTypes.object,
   classes: PropTypes.object.isRequired,
