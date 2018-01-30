@@ -9,7 +9,7 @@ import { hexToRgb } from '../../utils/color';
 const styles = theme => ({
   inputRoot: {
     color: theme.typography.body1.color,
-    fontSize: theme.typography.pxToRem(theme.typography.fontSize),
+    fontSize: theme.typography.pxToRem(13),
   },
   labelRoot: {
     color: `rgba(${hexToRgb(theme.typography.body1.color)}, 0.87)`,
@@ -31,6 +31,7 @@ class DisplayInfo extends PureComponent {
           InputProps={{ disableUnderline: true, classes: { input: classes.inputRoot } }}
           InputLabelProps={{ classes: { root: classes.labelRoot } }}
           {...textFieldProps}
+          multiline
         />
       </FormControl>
     );
@@ -43,7 +44,7 @@ DisplayInfo.defaultProps = {
 };
 
 DisplayInfo.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   formControlProps: PropTypes.object,
   textFieldProps: PropTypes.object,
