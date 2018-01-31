@@ -26,7 +26,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.common.white,
     border: `1px solid ${theme.palette.grey[100]}`,
     fontSize: theme.typography.pxToRem(14),
-    padding: '17px 12px',
+    padding: '9px 12px',
     lineHeight: 1,
     minHeight: 36,
     boxSizing: 'border-box',
