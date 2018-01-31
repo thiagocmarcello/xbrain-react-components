@@ -4,8 +4,9 @@ import { withStyles } from 'material-ui/styles';
 import { CircularProgress, Button } from 'material-ui';
 
 const styles = theme => ({
-  wrapper: {
+  holder: {
     position: 'relative',
+    display: 'inline-block',
   },
   buttonProgress: {
     position: 'absolute',
@@ -91,21 +92,19 @@ class XButton extends PureComponent {
     const gutters = this.getGutter();
 
     return (
-      <div className={gutters}>
-        <div className={classes.wrapper}>
-          <Button
-            raised={!ghost}
-            disabled={loading}
-            color="primary"
-            classes={{ root: this.getGhostStyle() }}
-            {...props}
-          >
-            {this.renderLabel()}
-          </Button>
-          {loading && (
-            <CircularProgress size={theme.spacing.unit * 3} className={classes.buttonProgress} />
-          )}
-        </div>
+      <div className={`${classes.holder} ${gutters}`}>
+        <Button
+          raised={!ghost}
+          disabled={loading}
+          color="primary"
+          classes={{ root: this.getGhostStyle() }}
+          {...props}
+        >
+          {this.renderLabel()}
+        </Button>
+        {loading && (
+          <CircularProgress size={theme.spacing.unit * 3} className={classes.buttonProgress} />
+        )}
       </div>
     );
   }
