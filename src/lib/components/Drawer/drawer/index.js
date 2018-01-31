@@ -195,7 +195,7 @@ class DashboardDrawer extends PureComponent {
             </footer>
           </Drawer>
         </Hidden>
-        <Hidden mdUp>
+        <Hidden mdUp implementation="css">
           <Drawer
             type="temporary"
             open={openSm}

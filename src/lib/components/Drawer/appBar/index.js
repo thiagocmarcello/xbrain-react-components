@@ -57,7 +57,7 @@ class AppBarTemplate extends PureComponent {
         position="fixed"
         className={[classes.appBar, openMd && classes.appBarShift].join(' ')}
       >
-        <Hidden mdUp>
+        <Hidden mdUp implementation="css">
           <Toolbar className={classes.toolbar} disableGutters>
             <IconButton
               aria-label="open drawer"
@@ -69,7 +69,7 @@ class AppBarTemplate extends PureComponent {
             {content}
           </Toolbar>
         </Hidden>
-        <Hidden smDown>
+        <Hidden smDown implementation="css">
           <Toolbar disableGutters>{content}</Toolbar>
         </Hidden>
       </AppBar>
