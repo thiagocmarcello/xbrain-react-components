@@ -8,6 +8,7 @@ import XActionButton from './lib/components/ActionButton';
 import XPaper from './lib/components/Paper';
 import XTableEmpty from './lib/components/TableEmpty';
 import XDisplayInfo from './lib/components/DisplayInfo';
+import XConfirmDialog from './lib/components/ConfirmDialog';
 
 export {
   XButton,
@@ -20,4 +21,5 @@ export {
   XPaper,
   XTableEmpty,
   XDisplayInfo,
+  XConfirmDialog,
 };

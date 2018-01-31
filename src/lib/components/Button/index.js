@@ -30,7 +30,6 @@ const styles = theme => ({
   ghost: {
     borderWidth: 1,
     borderStyle: 'solid',
-    height: 36,
   },
 });
 

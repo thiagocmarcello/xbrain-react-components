@@ -106,7 +106,19 @@ const styles = theme => ({
 class DashboardDrawer extends PureComponent {
   handleDrawerSmToggle = () => this.props.toggleDrawerSm();
 
-  handleDrawerMdToggle = () => this.props.toggleDrawerMd();
+  handleDrawerMdToggle = () => {
+    const { toggleDrawerMd, openMd } = this.props;
+    const { body } = document;
+    if (openMd) {
+      body.classList.add('drawer-md-closed');
+      body.classList.remove('drawer-md-open');
+    } else {
+      body.classList.add('drawer-md-open');
+      body.classList.remove('drawer-md-closed');
+    }
+
+    toggleDrawerMd();
+  };
 
   renderHeader = () => {
     const {

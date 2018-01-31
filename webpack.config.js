@@ -16,6 +16,7 @@ const config = {
     'material-ui/List': 'material-ui/List',
     'material-ui/Input': 'material-ui/Input',
     'material-ui/Form': 'material-ui/Form',
+    'material-ui/Dialog': 'material-ui/Dialog',
     'material-ui/styles/colorManipulator': 'material-ui/styles/colorManipulator',
     'prop-types': 'prop-types',
     'material-ui/Progress': 'material-ui/Progress',
