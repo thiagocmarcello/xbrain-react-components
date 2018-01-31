@@ -4,12 +4,8 @@ import { withStyles } from 'material-ui/styles';
 import { CircularProgress, Button } from 'material-ui';
 
 const styles = theme => ({
-  root: {
-    display: 'inline-block',
-  },
   wrapper: {
     position: 'relative',
-    display: 'inline-block',
   },
   buttonProgress: {
     position: 'absolute',
@@ -95,7 +91,7 @@ class XButton extends PureComponent {
     const gutters = this.getGutter();
 
     return (
-      <div className={`${classes.root} ${gutters}`}>
+      <div className={gutters}>
         <div className={classes.wrapper}>
           <Button
             raised={!ghost}
@@ -116,19 +112,20 @@ class XButton extends PureComponent {
 }
 
 XButton.propTypes = {
-  classes: PropTypes.object.isRequired,
   children: PropTypes.string.isRequired,
+  classes: PropTypes.object.isRequired,
+  ghost: PropTypes.bool,
+  gutter: PropTypes.string,
   loading: PropTypes.bool,
   loadingText: PropTypes.string,
-  gutter: PropTypes.string,
-  ghost: PropTypes.bool,
+  theme: PropTypes.object.isRequired,
 };
 
 XButton.defaultProps = {
+  ghost: false,
+  gutter: null,
   loading: false,
   loadingText: 'aguarde',
-  gutter: null,
-  ghost: false,
 };
 
 export default withStyles(styles, { withTheme: true })(XButton);
