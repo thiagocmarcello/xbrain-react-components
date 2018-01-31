@@ -1,10 +1,11 @@
 import { FormControl } from 'material-ui/Form';
 import { TextField } from 'material-ui';
+import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { withStyles } from 'material-ui/styles';
 
 import { hexToRgb } from '../../utils/color';
+import toString from '../../utils/toString';
 
 const styles = theme => ({
   inputRoot: {
@@ -26,7 +27,7 @@ class DisplayInfo extends PureComponent {
       <FormControl fullWidth margin="dense" {...formControlProps}>
         <TextField
           disabled
-          value={value}
+          value={toString(value).toUpperCase()}
           label={label}
           InputProps={{ disableUnderline: true, classes: { input: classes.inputRoot } }}
           InputLabelProps={{ classes: { root: classes.labelRoot } }}

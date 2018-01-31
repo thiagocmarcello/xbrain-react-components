@@ -45,7 +45,6 @@ class ActionButton extends PureComponent {
         </IconButton>
         {anchorEl ? (
           <Menu
-            id="long-menu"
             anchorEl={this.state.anchorEl}
             open={Boolean(anchorEl)}
             onClose={this.handleClose}
