@@ -105,18 +105,18 @@ const styles = theme => ({
 
 class DashboardDrawer extends PureComponent {
   componentDidMount() {
-    this.handleBodyClass();
+    this.handleBodyClass(!this.props.openMd);
   }
 
   handleDrawerSmToggle = () => this.props.toggleDrawerSm();
 
   handleDrawerMdToggle = () => {
-    this.handleBodyClass();
-    this.props.toggleDrawerMd();
+    const { toggleDrawerMd, openMd } = this.props;
+    this.handleBodyClass(openMd);
+    toggleDrawerMd();
   };
 
-  handleBodyClass = () => {
-    const { openMd } = this.props;
+  handleBodyClass = (openMd) => {
     const { body } = document;
 
     if (openMd) {

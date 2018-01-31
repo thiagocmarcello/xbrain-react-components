@@ -1,25 +1,27 @@
-import XButton from './lib/components/Button';
-import XExternalRedirect from './lib/components/ExternalRedirect';
-import XDrawer from './lib/components/Drawer';
-import XPageHeader from './lib/components/PageHeader';
-import XTextField from './lib/components/TextField';
-import XSelect from './lib/components/Select';
 import XActionButton from './lib/components/ActionButton';
-import XPaper from './lib/components/Paper';
-import XTableEmpty from './lib/components/TableEmpty';
-import XDisplayInfo from './lib/components/DisplayInfo';
+import XButton from './lib/components/Button';
 import XConfirmDialog from './lib/components/ConfirmDialog';
+import XDisplayInfo from './lib/components/DisplayInfo';
+import XDrawer from './lib/components/Drawer';
+import XExternalRedirect from './lib/components/ExternalRedirect';
+import XPageHeader from './lib/components/PageHeader';
+import XPaper from './lib/components/Paper';
+import XSelect from './lib/components/Select';
+import XTableEmpty from './lib/components/TableEmpty';
+import XTextField from './lib/components/TextField';
+import XTypography from './lib/components/Typography';
 
 export {
-  XButton,
-  XExternalRedirect,
-  XDrawer,
-  XPageHeader,
-  XTextField,
-  XSelect,
   XActionButton,
-  XPaper,
-  XTableEmpty,
-  XDisplayInfo,
+  XButton,
   XConfirmDialog,
+  XDisplayInfo,
+  XDrawer,
+  XExternalRedirect,
+  XPageHeader,
+  XPaper,
+  XSelect,
+  XTableEmpty,
+  XTextField,
+  XTypography,
 };
