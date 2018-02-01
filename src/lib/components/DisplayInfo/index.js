@@ -1,38 +1,52 @@
 import { FormControl } from 'material-ui/Form';
-import { TextField } from 'material-ui';
 import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
-import { hexToRgb } from '../../utils/color';
 import toString from '../../utils/toString';
+import XTextField from '../TextField';
 
 const styles = theme => ({
   inputRoot: {
-    color: theme.typography.body1.color,
-    fontSize: theme.typography.pxToRem(13),
-  },
-  labelRoot: {
-    color: `rgba(${hexToRgb(theme.typography.body1.color)}, 0.87)`,
-    opacity: 0.8,
+    '& textarea:disabled': {
+      background: 'transparent',
+      borderColor: 'transparent',
+      paddingLeft: 0,
+      paddingRight: 0,
+      color: theme.palette.text.primary,
+    },
   },
 });
 
 class DisplayInfo extends PureComponent {
   render() {
     const {
-      label, value, formControlProps, textFieldProps, classes,
+      label,
+      value,
+      formControlProps,
+      textFieldProps,
+      classes,
+      InputProps,
+      InputLabelProps,
+      fullWidth,
     } = this.props;
     return (
-      <FormControl fullWidth margin="dense" {...formControlProps}>
-        <TextField
+      <FormControl fullWidth={fullWidth} margin="dense" {...formControlProps}>
+        <XTextField
           disabled
           value={toString(value).toUpperCase()}
           label={label}
-          InputProps={{ disableUnderline: true, classes: { input: classes.inputRoot } }}
-          InputLabelProps={{ classes: { root: classes.labelRoot } }}
-          {...textFieldProps}
+          className={classes.inputRoot}
           multiline
+          InputProps={{
+            ...InputProps,
+            disableUnderline: true,
+          }}
+          InputLabelProps={{
+            ...InputLabelProps,
+            shrink: true,
+          }}
+          {...textFieldProps}
         />
       </FormControl>
     );
@@ -41,15 +55,21 @@ class DisplayInfo extends PureComponent {
 
 DisplayInfo.defaultProps = {
   formControlProps: null,
+  fullWidth: true,
+  InputLabelProps: null,
+  InputProps: null,
   textFieldProps: null,
 };
 
 DisplayInfo.propTypes = {
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  formControlProps: PropTypes.object,
-  textFieldProps: PropTypes.object,
   classes: PropTypes.object.isRequired,
+  formControlProps: PropTypes.object,
+  fullWidth: PropTypes.bool,
+  InputLabelProps: PropTypes.object,
+  InputProps: PropTypes.object,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  textFieldProps: PropTypes.object,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 export default withStyles(styles)(DisplayInfo);

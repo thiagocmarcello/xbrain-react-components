@@ -13,6 +13,7 @@ const styles = theme => ({
   select: {
     borderRadius: 2,
     boxSizing: 'border-box',
+    color: theme.palette.text.primary,
     height: 36,
     padding: '7px 0 7px 12px',
     '&:focus': {
@@ -36,6 +37,7 @@ const styles = theme => ({
   },
   disabled: {
     background: theme.palette.grey[50],
+    color: theme.palette.text.disabled,
   },
   inputLabelRoot: {
     fontSize: theme.typography.pxToRem(18),

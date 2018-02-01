@@ -22,14 +22,15 @@ const styles = theme => ({
     },
   },
   input: {
-    borderRadius: 2,
     backgroundColor: theme.palette.common.white,
     border: `1px solid ${theme.palette.grey[100]}`,
+    borderRadius: 2,
+    boxSizing: 'border-box',
+    color: theme.palette.text.primary,
     fontSize: theme.typography.pxToRem(14),
-    padding: '9px 12px',
     lineHeight: 1,
     minHeight: 36,
-    boxSizing: 'border-box',
+    padding: '9px 12px',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
     '&:focus': {
       borderColor: theme.palette.primary.main,
@@ -37,6 +38,7 @@ const styles = theme => ({
     },
     '&:disabled': {
       background: theme.palette.grey[50],
+      color: theme.palette.text.disabled,
     },
   },
   label: {
