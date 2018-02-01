@@ -11,9 +11,19 @@ const styles = theme => ({
     'label + &': {
       marginTop: theme.spacing.unit * 3,
     },
+    '& > div': {
+      height: 'auto !important',
+    },
   },
   error: {
     '& > input': {
+      borderColor: theme.palette.error.main,
+      '&:focus': {
+        borderColor: theme.palette.error.main,
+        boxShadow: `0 0 0 0.2rem rgba(${hexToRgb(theme.palette.error.main)}, .25)`,
+      },
+    },
+    '& > textarea': {
       borderColor: theme.palette.error.main,
       '&:focus': {
         borderColor: theme.palette.error.main,
@@ -28,9 +38,8 @@ const styles = theme => ({
     boxSizing: 'border-box',
     color: theme.palette.text.primary,
     fontSize: theme.typography.pxToRem(14),
-    lineHeight: 1,
     minHeight: 36,
-    padding: '9px 12px',
+    padding: '6px 12px',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
     '&:focus': {
       borderColor: theme.palette.primary.main,
@@ -73,47 +82,53 @@ const TextField = ({
   InputLabelProps,
   onChange,
   type,
+  multiline,
   ...props
-}) => (
-  <TextFieldMui
-    error={error}
-    id={name}
-    type={type}
-    InputProps={{
-      disableUnderline: true,
-      classes: {
-        root: classes.root,
-        error: classes.error,
-        input: classes.input,
-      },
-      ...InputProps,
-    }}
-    InputLabelProps={{
-      shrink: true,
-      className: classes.label,
-      error: false,
-      ...InputLabelProps,
-    }}
-    {...props}
-    onChange={(event) => {
-      const newEvent = event;
+}) => {
+  const rows = multiline ? { rows: 2 } : null;
+  return (
+    <TextFieldMui
+      error={error}
+      id={name}
+      type={type}
+      {...rows}
+      multiline={multiline}
+      InputProps={{
+        disableUnderline: true,
+        classes: {
+          root: classes.root,
+          error: classes.error,
+          input: classes.input,
+        },
+        ...InputProps,
+      }}
+      InputLabelProps={{
+        shrink: true,
+        className: classes.label,
+        error: false,
+        ...InputLabelProps,
+      }}
+      {...props}
+      onChange={(event) => {
+        const newEvent = event;
+        newEvent.target.value = normalizeValue(event.target.value, {
+          textTransform,
+          type,
+        });
 
-      newEvent.target.value = normalizeValue(event.target.value, {
-        textTransform,
-        type,
-      });
-
-      if (onChange) {
-        onChange(newEvent);
-      }
-    }}
-  />
-);
+        if (onChange) {
+          onChange(newEvent);
+        }
+      }}
+    />
+  );
+};
 
 TextField.defaultProps = {
   error: false,
   InputLabelProps: null,
   InputProps: null,
+  multiline: false,
   name: null,
   onChange: null,
   textTransform: TEXT_TRANSFORM_UPPERCASE,
@@ -125,6 +140,7 @@ TextField.propTypes = {
   error: PropTypes.bool,
   InputLabelProps: PropTypes.object,
   InputProps: PropTypes.object,
+  multiline: PropTypes.bool,
   name: PropTypes.string,
   onChange: PropTypes.func,
   type: PropTypes.string,

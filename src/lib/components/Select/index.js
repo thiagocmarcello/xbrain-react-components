@@ -14,8 +14,9 @@ const styles = theme => ({
     borderRadius: 2,
     boxSizing: 'border-box',
     color: theme.palette.text.primary,
+    fontSize: theme.typography.pxToRem(14),
     height: 36,
-    padding: '7px 0 7px 12px',
+    padding: '9px 0 9px 12px',
     '&:focus': {
       background: 'transparent',
       borderRadius: 2,
