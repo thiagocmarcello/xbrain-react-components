@@ -62,7 +62,7 @@ class DisplayInfo extends PureComponent {
 }
 
 DisplayInfo.defaultProps = {
-  fullWidth: false,
+  fullWidth: true,
   formControlProps: null,
   startAdornment: null,
   endAdornment: null,
