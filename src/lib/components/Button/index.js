@@ -104,6 +104,7 @@ class XButton extends PureComponent {
           disabled={loading}
           color="primary"
           classes={{ root: this.getGhostStyle(), fullWidth: classes.fullWidth }}
+          fullWidth={fullWidth}
           {...props}
         >
           {this.renderLabel()}
