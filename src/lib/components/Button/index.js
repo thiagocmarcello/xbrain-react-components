@@ -8,6 +8,10 @@ const styles = theme => ({
     position: 'relative',
     display: 'inline-block',
   },
+  holderFullWidth: {
+    position: 'relative',
+    display: 'block',
+  },
   buttonProgress: {
     position: 'absolute',
     top: '50%',
@@ -26,6 +30,9 @@ const styles = theme => ({
   },
   gutterLeft: {
     marginLeft: theme.spacing.unit,
+  },
+  fullWidth: {
+    width: '100%',
   },
   ghost: {
     borderWidth: 1,
@@ -85,18 +92,18 @@ class XButton extends PureComponent {
 
   render() {
     const {
-      classes, loading, loadingText, gutter, ghost, theme, ...props
+      classes, loading, loadingText, gutter, ghost, theme, fullWidth, ...props
     } = this.props;
 
     const gutters = this.getGutter();
 
     return (
-      <div className={`${classes.holder} ${gutters}`}>
+      <div className={`${fullWidth ? classes.holderFullWidth : classes.holder} ${gutters}`}>
         <Button
           raised={!ghost}
           disabled={loading}
           color="primary"
-          classes={{ root: this.getGhostStyle() }}
+          classes={{ root: this.getGhostStyle(), fullWidth: classes.fullWidth }}
           {...props}
         >
           {this.renderLabel()}
@@ -112,6 +119,7 @@ class XButton extends PureComponent {
 XButton.propTypes = {
   children: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
+  fullWidth: PropTypes.bool,
   ghost: PropTypes.bool,
   gutter: PropTypes.string,
   loading: PropTypes.bool,
@@ -120,6 +128,7 @@ XButton.propTypes = {
 };
 
 XButton.defaultProps = {
+  fullWidth: false,
   ghost: false,
   gutter: null,
   loading: false,
