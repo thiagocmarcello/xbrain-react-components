@@ -31,6 +31,7 @@ Using [npm](https://www.npmjs.org/):
 
 * [XButton](#xbutton) - [mui](https://material-ui-next.com/demos/buttons/)
 * [XExternalRedirect](#xexternalredirect) - Redirects to an external URL
+* [XTableHead](#xtablehead) - [mui](https://material-ui-next.com/demos/tables/)
 
 > All `[mui]` components have the
 > [material-ui](https://github.com/mui-org/material-ui.git) props. However, we
@@ -71,4 +72,56 @@ Redirects to an external URL.
 
 ```jsx
 <XExternalRedirect uri="https://google.com" />
+```
+
+### XTableHead
+
+Head for data table.
+
+#### Properties
+
+`enterDelay=300` (optional) - Delay for tooltip.
+`titleToolTip={string}` (optional) - Name in tooltip.
+`actions={false|true}` (optional) - Add last column in table for actions.
+`actionsLabel={string}` (optional) - Name of the label for actions.
+`orderDirection={'asc'|'desc'}` (optional) - The sort order of the column.
+`orderBy={string}` (optional) - The current sort columns.
+`data={array}` (required) - Data list.
+`data.orderKey:{string}` - (optional) - The name of the columns to be sorted. If it is not present, the column will not be sorted.
+`data.name:{string}` - (optional) - Column name.
+`data.numeric:{true|false}` - (optional) - If `true`, content will align to the right.
+
+#### Exemple
+
+```jsx
+const columns = [{ name: 'id', orderKey: 'id', numeric: true }, { name: 'name', orderKey: 'name' }];
+
+const order = {
+  orderBy: 'id',
+  orderDirection: 'asc',
+};
+
+const data = [
+  {
+    id: 1,
+    name: 'Name 1',
+  },
+  {
+    id: 2,
+    name: 'Name 2',
+  },
+];
+
+handleOrderChange = newOrderBy => {
+  console.log('column click:', newOrderBy);
+};
+
+<XTableHead
+  columns={columns}
+  orderBy={order.orderBy}
+  orderDirection={order.orderDirection}
+  onOrderChange={handleOrderChange}
+  data={data}
+  actions
+/>;
 ```

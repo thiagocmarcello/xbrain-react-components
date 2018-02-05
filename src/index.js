@@ -10,6 +10,7 @@ import XSelect from './lib/components/Select';
 import XTableEmpty from './lib/components/TableEmpty';
 import XTextField from './lib/components/TextField';
 import XTypography from './lib/components/Typography';
+import XTableHead from './lib/components/TableHead';
 
 export {
   XActionButton,
@@ -24,4 +25,5 @@ export {
   XTableEmpty,
   XTextField,
   XTypography,
+  XTableHead,
 };
