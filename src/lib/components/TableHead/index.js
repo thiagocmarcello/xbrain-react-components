@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import TableCell from 'material-ui/Table/TableCell';
-import { TableHead as TableHeadMui } from 'material-ui/Table/TableHead';
-import TableRow from 'material-ui/Table/TableRow';
-import TableSortLabel from 'material-ui/Table/TableSortLabel';
-import Tooltip from 'material-ui/Tooltip/Tooltip';
+import { TableCell, TableHead as TableHeadMui, TableRow, TableSortLabel } from 'material-ui/Table';
+import { Tooltip } from 'material-ui';
 
 export default class TableHead extends PureComponent {
   handleChangeOrder = property => () => {
@@ -45,7 +42,11 @@ export default class TableHead extends PureComponent {
         <TableHeadMui>
           <TableRow>
             {columns.map((column, index) => (
-              <TableCell key={index} padding={index % 2 === 0 ? 'dense' : 'none'} numeric={column.numeric}>
+              <TableCell
+                key={index}
+                padding={index % 2 === 0 ? 'dense' : 'none'}
+                numeric={column.numeric}
+              >
                 {this.renderContent(column)}
               </TableCell>
             ))}
