@@ -52,7 +52,7 @@ const PageHeaderHOC = ({ image, ...rest }) => {
     renderTitle = (title, classes) =>
       (typeof title === 'string' ? (
         <Typography
-          type="title"
+          variant="title"
           classes={{ colorPrimary: classes.text }}
           className={classes.title}
           color="primary"
@@ -65,7 +65,7 @@ const PageHeaderHOC = ({ image, ...rest }) => {
     renderSubheading = (subheading, classes) =>
       (typeof subheading === 'string' ? (
         <Typography
-          type="subheading"
+          variant="subheading"
           classes={{ subheading: classes.subheading, colorPrimary: classes.text }}
           color="primary"
           noWrap

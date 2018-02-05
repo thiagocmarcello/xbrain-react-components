@@ -138,7 +138,7 @@ class DashboardDrawer extends PureComponent {
           <div className={classes.drawerHeaderLogoHolder}>
             <img alt="" src={logo} width="32" height="32" />
           </div>
-          <Typography type="body1" className={classes.drawerHeaderLogoText}>
+          <Typography variant="body1" className={classes.drawerHeaderLogoText}>
             {title}
           </Typography>
         </button>
@@ -166,7 +166,7 @@ class DashboardDrawer extends PureComponent {
             classes={{
               paper: [classes.drawerPaper, !openMd && classes.drawerPaperClose].join(' '),
             }}
-            type="permanent"
+            variant="permanent"
             open={openMd}
           >
             {this.renderHeader()}
@@ -197,7 +197,7 @@ class DashboardDrawer extends PureComponent {
         </Hidden>
         <Hidden mdUp implementation="css">
           <Drawer
-            type="temporary"
+            variant="temporary"
             open={openSm}
             classes={{
               paper: classes.drawerPaper,

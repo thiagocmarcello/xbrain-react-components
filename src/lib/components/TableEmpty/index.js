@@ -14,7 +14,7 @@ export default class TableEmpty extends PureComponent {
           {loading ? (
             <CircularProgress size={24} />
           ) : (
-            <Typography type="body1" align="center">
+            <Typography variant="body1" align="center">
               {data === null ? 'Informe os filtros.' : 'Nenhum resultado encontrado.'}
             </Typography>
           )}
