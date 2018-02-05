@@ -1,7 +1,7 @@
 import { Divider, Typography } from 'material-ui';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import withStyles from 'material-ui/styles/withStyles';
+import { withStyles } from 'material-ui/styles';
 
 const styles = () => ({
   divider: {
