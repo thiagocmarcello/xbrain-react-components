@@ -77,12 +77,12 @@ class XButton extends PureComponent {
       .join(' ');
   };
 
-  getGhostStyle = () => {
-    const { classes, ghost } = this.props;
+  getStyle = (ghost) => {
+    const { classes } = this.props;
 
-    if (!ghost) return '';
+    if (ghost) return classes.ghost;
 
-    return classes.ghost;
+    return '';
   };
 
   renderLabel = () => {
@@ -96,7 +96,6 @@ class XButton extends PureComponent {
       loading,
       loadingText,
       gutter,
-      ghost,
       theme,
       fullWidth,
       variant,
@@ -104,14 +103,15 @@ class XButton extends PureComponent {
     } = this.props;
 
     const gutters = this.getGutter();
+    const isGhost = variant === 'ghost';
 
     return (
       <div className={`${fullWidth ? classes.holderFullWidth : classes.holder} ${gutters}`}>
         <Button
-          variant={ghost ? 'raised' : variant}
+          variant={isGhost ? 'flat' : variant}
           disabled={loading}
           color="primary"
-          classes={{ root: this.getGhostStyle(), fullWidth: classes.fullWidth }}
+          classes={{ root: this.getStyle(isGhost), fullWidth: classes.fullWidth }}
           fullWidth={fullWidth}
           {...props}
         >
@@ -127,7 +127,6 @@ class XButton extends PureComponent {
 
 XButton.defaultProps = {
   fullWidth: false,
-  ghost: false,
   gutter: null,
   loading: false,
   loadingText: 'aguarde',
@@ -138,12 +137,11 @@ XButton.propTypes = {
   children: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
   fullWidth: PropTypes.bool,
-  ghost: PropTypes.bool,
   gutter: PropTypes.string,
   loading: PropTypes.bool,
   loadingText: PropTypes.string,
   theme: PropTypes.object.isRequired,
-  variant: PropTypes.oneOf(['flat', 'raised', 'fab']),
+  variant: PropTypes.oneOf(['flat', 'raised', 'fab', 'ghost']),
 };
 
 export default withStyles(styles, { withTheme: true })(XButton);

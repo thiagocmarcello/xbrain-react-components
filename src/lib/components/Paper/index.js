@@ -10,20 +10,23 @@ const styles = theme => ({
   grey: {
     backgroundColor: theme.palette.grey[50],
   },
+  fullWidth: {
+    width: '100%',
+  },
 });
 class XPaper extends PureComponent {
   render() {
     const {
-      classes, children, grey, ...rest
+      classes, children, grey, fullWidth, ...rest
     } = this.props;
 
-    const greyClassName = grey ? classes.grey : null;
+    const rootClassName = grey ? classes.grey : null;
 
     return (
       <Paper
         elevation={grey ? 3 : 2}
-        classes={{ root: greyClassName }}
-        className={classes.paper}
+        classes={{ root: rootClassName }}
+        className={[classes.paper, fullWidth ? classes.fullWidth : ''].join(' ')}
         {...rest}
       >
         {children}
@@ -34,12 +37,14 @@ class XPaper extends PureComponent {
 
 XPaper.defaultProps = {
   children: null,
+  fullWidth: false,
   grey: false,
 };
 
 XPaper.propTypes = {
-  classes: PropTypes.object.isRequired,
   children: PropTypes.node,
+  classes: PropTypes.object.isRequired,
+  fullWidth: PropTypes.bool,
   grey: PropTypes.bool,
 };
 
