@@ -134,7 +134,7 @@ XButton.defaultProps = {
 };
 
 XButton.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   classes: PropTypes.object.isRequired,
   fullWidth: PropTypes.bool,
   gutter: PropTypes.string,
