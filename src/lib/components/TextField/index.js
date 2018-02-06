@@ -80,7 +80,7 @@ const TextField = ({
   error,
   textTransform,
   InputLabelProps,
-  onChange,
+  // onChange,
   type,
   multiline,
   ...props
@@ -109,17 +109,17 @@ const TextField = ({
         ...InputLabelProps,
       }}
       {...props}
-      onChange={(event) => {
-        const newEvent = event;
-        newEvent.target.value = normalizeValue(event.target.value, {
-          textTransform,
-          type,
-        });
+      // onChange={(event) => {
+      //   const newEvent = event;
+      //   newEvent.target.value = normalizeValue(event.target.value, {
+      //     textTransform,
+      //     type,
+      //   });
 
-        if (onChange) {
-          onChange(newEvent);
-        }
-      }}
+      //   if (onChange) {
+      //     onChange(newEvent);
+      //   }
+      // }}
     />
   );
 };
