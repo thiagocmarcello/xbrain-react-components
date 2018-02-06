@@ -175,7 +175,7 @@ XButton.propTypes = {
   loading: PropTypes.bool,
   loadingText: PropTypes.string,
   theme: PropTypes.object.isRequired,
-  variant: PropTypes.oneOf([...VARIANTS]),
+  variant: PropTypes.oneOf('flat', 'raised', 'fab', 'ghost', 'floating'),
 };
 
 export default withStyles(styles, { withTheme: true })(XButton);
