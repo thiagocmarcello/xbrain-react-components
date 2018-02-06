@@ -42,7 +42,7 @@ class XConfirmDialog extends PureComponent {
           <DialogContentText>{description}</DialogContentText>
         </DialogContent>
         <DialogActions>
-          <XButton size="small" onClick={this.handleClose} ghost>
+          <XButton size="small" variant="ghost" onClick={this.handleClose}>
             {leftButtonText}
           </XButton>
           <XButton size="small" onClick={this.handleConfirm} autoFocus>

@@ -38,7 +38,20 @@ const styles = theme => ({
     borderWidth: 1,
     borderStyle: 'solid',
   },
+  floating: {
+    position: 'fixed',
+    bottom: theme.spacing.unit * 3,
+    right: theme.spacing.unit * 3,
+  },
 });
+
+const VARIANTS = {
+  FLAT: 'flat',
+  RAISED: 'raised',
+  FAB: 'fab',
+  GHOST: 'ghost',
+  FLOATING: 'floating',
+};
 
 class XButton extends PureComponent {
   getGutter = () => {
@@ -77,12 +90,34 @@ class XButton extends PureComponent {
       .join(' ');
   };
 
-  getStyle = (ghost) => {
-    const { classes } = this.props;
+  getStyle = () => {
+    const { variant, classes } = this.props;
 
-    if (ghost) return classes.ghost;
+    switch (variant) {
+      case VARIANTS.GHOST:
+        return classes.ghost;
 
-    return '';
+      case VARIANTS.FLOATING:
+        return classes.floating;
+
+      default:
+        return '';
+    }
+  };
+
+  getVariant = () => {
+    const { variant } = this.props;
+
+    switch (variant) {
+      case VARIANTS.GHOST:
+        return VARIANTS.FLAT;
+
+      case VARIANTS.FLOATING:
+        return VARIANTS.FAB;
+
+      default:
+        return variant;
+    }
   };
 
   renderLabel = () => {
@@ -103,15 +138,14 @@ class XButton extends PureComponent {
     } = this.props;
 
     const gutters = this.getGutter();
-    const isGhost = variant === 'ghost';
 
     return (
       <div className={`${fullWidth ? classes.holderFullWidth : classes.holder} ${gutters}`}>
         <Button
-          variant={isGhost ? 'flat' : variant}
+          variant={this.getVariant()}
           disabled={loading}
           color="primary"
-          classes={{ root: this.getStyle(isGhost), fullWidth: classes.fullWidth }}
+          classes={{ root: this.getStyle(), fullWidth: classes.fullWidth }}
           fullWidth={fullWidth}
           {...props}
         >
@@ -141,7 +175,7 @@ XButton.propTypes = {
   loading: PropTypes.bool,
   loadingText: PropTypes.string,
   theme: PropTypes.object.isRequired,
-  variant: PropTypes.oneOf(['flat', 'raised', 'fab', 'ghost']),
+  variant: PropTypes.oneOf([...VARIANTS]),
 };
 
 export default withStyles(styles, { withTheme: true })(XButton);
