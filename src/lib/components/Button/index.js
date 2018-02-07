@@ -138,13 +138,15 @@ class XButton extends PureComponent {
     } = this.props;
 
     const gutters = this.getGutter();
+    const variantType = this.getVariant();
+    const color = variantType === VARIANTS.floating ? 'secondary' : 'primary';
 
     return (
       <div className={`${fullWidth ? classes.holderFullWidth : classes.holder} ${gutters}`}>
         <Button
-          variant={this.getVariant()}
+          variant={variantType}
           disabled={loading}
-          color="primary"
+          color={color}
           classes={{ root: this.getStyle(), fullWidth: classes.fullWidth }}
           fullWidth={fullWidth}
           {...props}
@@ -175,7 +177,7 @@ XButton.propTypes = {
   loading: PropTypes.bool,
   loadingText: PropTypes.string,
   theme: PropTypes.object.isRequired,
-  variant: PropTypes.oneOf('flat', 'raised', 'fab', 'ghost', 'floating'),
+  variant: PropTypes.oneOf(['flat', 'raised', 'fab', 'ghost', 'floating']),
 };
 
 export default withStyles(styles, { withTheme: true })(XButton);
