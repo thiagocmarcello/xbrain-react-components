@@ -32,6 +32,7 @@ Using [npm](https://www.npmjs.org/):
 * [XButton](#xbutton) - [mui](https://material-ui-next.com/demos/buttons/)
 * [XExternalRedirect](#xexternalredirect) - Redirects to an external URL
 * [XTableHead](#xtablehead) - [mui](https://material-ui-next.com/demos/tables/)
+* [XTabs](#xtabs) - [mui](https://material-ui-next.com/api/tabs/)
 
 > All `[mui]` components have the
 > [material-ui](https://github.com/mui-org/material-ui.git) props. However, we
@@ -135,4 +136,37 @@ handleOrderChange = newOrderBy => {
   data={data}
   actions
 />;
+```
+
+### XTabs
+
+Tabs component.
+
+#### Properties
+
+`tabs={array}` (required) - Array of tabs .
+
+`tabs.label:{string}` - (optional) - The name tab.
+
+`tabs.disabled={bool}` (optional) - Disabled tab.
+
+`tabs.component={false|true}` (required) - Component that will be rendered.
+
+#### Exemple
+
+```jsx
+const tabs = [
+  {
+    label: 'information',
+    disabled: false,
+    component: <InformationScreen {...this.props} />,
+  },
+  {
+    label: 'Details',
+    disabled: false,
+    component: <DetailsScreen {...this.props} />,
+  },
+];
+
+<XTabs tabs={tabs} />;
 ```
