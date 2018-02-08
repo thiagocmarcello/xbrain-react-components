@@ -49,7 +49,7 @@ const styles = theme => ({
 });
 
 const Select = ({
-  classes, label, name, InputLabelProps, error, ...props
+  classes, label, name, InputLabelProps, error, required, ...props
 }) => (
   <Fragment>
     <InputLabel
@@ -62,6 +62,7 @@ const Select = ({
       {...InputLabelProps}
     >
       {label}
+      {required && ' *'}
     </InputLabel>
     <SelectMui
       disableUnderline
@@ -71,6 +72,7 @@ const Select = ({
         icon: classes.icon,
         disabled: classes.disabled,
       }}
+      required={required}
       {...props}
     />
   </Fragment>
@@ -79,6 +81,7 @@ const Select = ({
 Select.defaultProps = {
   error: false,
   InputLabelProps: null,
+  required: false,
 };
 
 Select.propTypes = {
@@ -87,6 +90,7 @@ Select.propTypes = {
   InputLabelProps: PropTypes.object,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  required: PropTypes.bool,
 };
 
 export default withStyles(styles)(Select);

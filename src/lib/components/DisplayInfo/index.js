@@ -4,6 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
+import toString from '../../utils/toString';
 import XTypography from '../Typography';
 
 const styles = theme => ({
@@ -41,8 +42,9 @@ class DisplayInfo extends PureComponent {
 
   render() {
     const {
-      label, value, formControlProps, classes, fullWidth,
+      label, value, formControlProps, classes, fullWidth, uppercase,
     } = this.props;
+
     return (
       <FormControl
         fullWidth={fullWidth}
@@ -53,7 +55,9 @@ class DisplayInfo extends PureComponent {
         <InputLabel shrink>{label}</InputLabel>
         <div className={classes.textRoot}>
           {this.renderStartAdornment(this.props)}
-          <XTypography className={classes.text}>{value}</XTypography>
+          <XTypography className={classes.text}>
+            {uppercase ? toString(value).toUpperCase() : value}
+          </XTypography>
           {this.renderEndAdornment(this.props)}
         </div>
       </FormControl>
@@ -62,20 +66,22 @@ class DisplayInfo extends PureComponent {
 }
 
 DisplayInfo.defaultProps = {
-  fullWidth: true,
-  formControlProps: null,
-  startAdornment: null,
   endAdornment: null,
+  formControlProps: null,
+  fullWidth: true,
+  startAdornment: null,
+  uppercase: true,
 };
 
 DisplayInfo.propTypes = {
   classes: PropTypes.object.isRequired,
+  endAdornment: PropTypes.node,
+  formControlProps: PropTypes.object,
   fullWidth: PropTypes.bool,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  formControlProps: PropTypes.object,
   startAdornment: PropTypes.node,
-  endAdornment: PropTypes.node,
+  uppercase: PropTypes.bool,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 export default withStyles(styles)(DisplayInfo);
