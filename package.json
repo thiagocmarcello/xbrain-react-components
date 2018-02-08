@@ -1,6 +1,6 @@
 {
   "name": "xbrain-react-components",
-  "version": "1.0.60",
+  "version": "1.0.61",
   "description": "Useful React Components for daily use.",
   "main": "dist/xbrain-react-components.min.js",
   "directories": {
