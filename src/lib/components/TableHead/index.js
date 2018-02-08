@@ -44,13 +44,17 @@ export default class TableHead extends PureComponent {
             {columns.map((column, index) => (
               <TableCell
                 key={index}
-                padding={index % 2 === 0 ? 'dense' : 'none'}
+                padding={column.padding || index % 2 === 0 ? 'none' : 'dense'}
                 numeric={column.numeric}
               >
                 {this.renderContent(column)}
               </TableCell>
             ))}
-            {actions && <TableCell>{actionsLabel}</TableCell>}
+            {actions && (
+              <TableCell padding="none" numeric>
+                {actionsLabel}
+              </TableCell>
+            )}
           </TableRow>
         </TableHeadMui>
       );
@@ -66,7 +70,7 @@ export default class TableHead extends PureComponent {
 TableHead.defaultProps = {
   enterDelay: 300,
   actions: false,
-  actionsLabel: 'Ação',
+  actionsLabel: 'Ações',
   titleToolTip: 'Ordenar',
   orderDirection: 'asc',
   orderBy: 'id',

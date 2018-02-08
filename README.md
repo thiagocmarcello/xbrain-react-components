@@ -81,15 +81,26 @@ Head for data table.
 #### Properties
 
 `enterDelay=300` (optional) - Delay for tooltip.
+
 `titleToolTip={string}` (optional) - Name in tooltip.
+
 `actions={false|true}` (optional) - Add last column in table for actions.
+
 `actionsLabel={string}` (optional) - Name of the label for actions.
+
 `orderDirection={'asc'|'desc'}` (optional) - The sort order of the column.
+
 `orderBy={string}` (optional) - The current sort columns.
+
 `data={array}` (required) - Data list.
+
 `data.orderKey:{string}` - (optional) - The name of the columns to be sorted. If it is not present, the column will not be sorted.
+
 `data.name:{string}` - (optional) - Column name.
+
 `data.numeric:{true|false}` - (optional) - If `true`, content will align to the right.
+
+`data.padding:{default'|'checkbox'|'dense'|'none'}` - (optional) - If present replace padding cell padding
 
 #### Exemple
 
