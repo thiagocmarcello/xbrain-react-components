@@ -1,18 +1,23 @@
+import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import Typography from 'material-ui/Typography/Typography';
 
-export default class TabContainer extends PureComponent {
+const styles = theme => ({
+  root: {
+    padding: theme.spacing.unit * 3,
+  },
+});
+
+class TabContainer extends PureComponent {
   render() {
-    const { children } = this.props;
-    return (
-      <Typography component="div" style={{ padding: 8 * 3 }}>
-        {children}
-      </Typography>
-    );
+    const { children, classes } = this.props;
+    return <div className={classes.root}>{children}</div>;
   }
 }
 
 TabContainer.propTypes = {
   children: PropTypes.node.isRequired,
+  classes: PropTypes.object.isRequired,
 };
+
+export default withStyles(styles)(TabContainer);

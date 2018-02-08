@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent, Fragment } from 'react';
-import Tab from 'material-ui/Tabs/Tab';
-import Tabs from 'material-ui/Tabs/Tabs';
+import { Tab } from 'material-ui/Tabs';
+import { Tabs } from 'material-ui';
 
 import TabContainer from './TabContainer';
 
