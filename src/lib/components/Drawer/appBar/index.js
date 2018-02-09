@@ -31,7 +31,6 @@ const styles = theme => ({
     },
   },
   toolbar: {
-    padding: 4,
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing.unit,
     },
