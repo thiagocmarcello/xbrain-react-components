@@ -20,7 +20,7 @@ class XTabs extends PureComponent {
     return (
       <Fragment>
         <Tabs value={tabActive} onChange={this.handleTabChange} {...this.props}>
-          {tabs.map(tab => <Tab label={tab.label} disabled={tab.disabled} />)}
+          {tabs.map((tab, index) => <Tab key={index} label={tab.label} disabled={tab.disabled} />)}
         </Tabs>
         {<TabContainer>{tabs[tabActive].component}</TabContainer>}
       </Fragment>
