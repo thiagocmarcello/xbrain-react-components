@@ -28,11 +28,16 @@ class XTypography extends PureComponent {
     const gutterBottomSize =
       typeof gutterBottom === 'boolean' && gutterBottom ? '1x' : gutterBottom;
 
+    const classNames = [];
     if (gutterTop) {
-      return classes[`gutterTop${gutterTopSize}`];
+      classNames.push(classes[`gutterTop${gutterTopSize}`]);
     }
 
-    return gutterBottom ? classes[`gutterBottom${gutterBottomSize}`] : '';
+    if (gutterBottom) {
+      classNames.push(classes[`gutterBottom${gutterBottomSize}`]);
+    }
+
+    return classNames.join(' ');
   };
 
   render() {
