@@ -88,7 +88,7 @@ const XLogoProgressHOC = ({ image }) => {
   return <LogoProgressContainer />;
 };
 
-LogoProgressHOC.propTypes = {
+XLogoProgressHOC.propTypes = {
   image: PropTypes.shape({
     alt: PropTypes.string.isRequired,
     height: PropTypes.number.isRequired,
