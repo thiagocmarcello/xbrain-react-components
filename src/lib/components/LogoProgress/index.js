@@ -6,7 +6,7 @@ import React, { PureComponent } from 'react';
 
 const progressHeight = 2;
 
-const LogoProgressHOC = ({ image }) => {
+const XLogoProgressHOC = ({ image }) => {
   const styles = (theme) => {
     const gutter = theme.spacing.unit * 2;
 
@@ -96,4 +96,4 @@ LogoProgressHOC.propTypes = {
   }).isRequired,
 };
 
-export default LogoProgressHOC;
+export default XLogoProgressHOC;
