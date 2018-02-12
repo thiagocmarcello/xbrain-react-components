@@ -1,5 +1,6 @@
 import { Divider, Typography } from 'material-ui';
 import { withStyles } from 'material-ui/styles';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
@@ -28,16 +29,16 @@ class XTypography extends PureComponent {
     const gutterBottomSize =
       typeof gutterBottom === 'boolean' && gutterBottom ? '1x' : gutterBottom;
 
-    const classNames = [];
+    const classNamesList = [];
     if (gutterTop) {
-      classNames.push(classes[`gutterTop${gutterTopSize}`]);
+      classNamesList.push(classes[`gutterTop${gutterTopSize}`]);
     }
 
     if (gutterBottom) {
-      classNames.push(classes[`gutterBottom${gutterBottomSize}`]);
+      classNamesList.push(classes[`gutterBottom${gutterBottomSize}`]);
     }
 
-    return classNames.join(' ');
+    return classNames(classNamesList);
   };
 
   render() {

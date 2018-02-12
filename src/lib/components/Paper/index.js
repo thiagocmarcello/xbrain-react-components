@@ -1,4 +1,5 @@
 import { Paper, withStyles } from 'material-ui';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
@@ -26,7 +27,7 @@ class XPaper extends PureComponent {
       <Paper
         elevation={grey ? 3 : 2}
         classes={{ root: rootClassName }}
-        className={[classes.paper, fullWidth ? classes.fullWidth : ''].join(' ')}
+        className={classNames(classes.paper, fullWidth ? classes.fullWidth : '')}
         {...rest}
       >
         {children}

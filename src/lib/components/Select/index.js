@@ -1,9 +1,10 @@
+import { fade } from 'material-ui/styles/colorManipulator';
+import { InputLabel } from 'material-ui/Input';
 import { Select as SelectMui } from 'material-ui';
 import { withStyles } from 'material-ui/styles';
-import { InputLabel } from 'material-ui/Input';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
-import { fade } from 'material-ui/styles/colorManipulator';
 
 const styles = theme => ({
   root: {
@@ -67,7 +68,7 @@ const Select = ({
       disableUnderline
       classes={{
         root: classes.root,
-        select: [classes.select, error ? classes.selectError : classes.selectNoError].join(' '),
+        select: classNames(classes.select, error ? classes.selectError : classes.selectNoError),
         icon: classes.icon,
         disabled: classes.disabled,
       }}

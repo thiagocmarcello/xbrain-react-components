@@ -1,7 +1,7 @@
+import { AppBar, IconButton, Toolbar, Hidden } from 'material-ui';
 import { lighten } from 'material-ui/styles/colorManipulator';
 import { withStyles } from 'material-ui/styles';
-import { AppBar, IconButton, Toolbar, Hidden } from 'material-ui';
-
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
@@ -54,7 +54,7 @@ class AppBarTemplate extends PureComponent {
     return (
       <AppBar
         position="fixed"
-        className={[classes.appBar, openMd && classes.appBarShift].join(' ')}
+        className={classNames(classes.appBar, openMd && classes.appBarShift)}
       >
         <Hidden mdUp implementation="css">
           <Toolbar className={classes.toolbar} disableGutters>

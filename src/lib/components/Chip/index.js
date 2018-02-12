@@ -1,6 +1,7 @@
 import { Chip } from 'material-ui';
 import { emphasize, fade } from 'material-ui/styles/colorManipulator';
 import { withStyles } from 'material-ui/styles';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
@@ -124,13 +125,13 @@ class XChip extends PureComponent {
     return (
       <Chip
         classes={{
-          avatar: [avatarStyle, classes.defaultAvatar].join(' '),
+          avatar: classNames(avatarStyle, classes.defaultAvatar),
           root: classes.root,
           label: classes.label,
-          deleteIcon: [deleteIconSizeStyle, classes.defaultDeleteIcon].join(' '),
+          deleteIcon: classNames(deleteIconSizeStyle, classes.defaultDeleteIcon),
           deletable: classes.defaultDeletable,
         }}
-        className={[sizeStyle, classes.default].join(' ')}
+        className={classNames(sizeStyle, classes.default)}
         {...rest}
       />
     );

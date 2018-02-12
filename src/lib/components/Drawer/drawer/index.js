@@ -1,9 +1,8 @@
-import { lighten } from 'material-ui/styles/colorManipulator';
-import { withStyles } from 'material-ui/styles';
-
 import { Drawer, Hidden, Typography } from 'material-ui';
+import { lighten } from 'material-ui/styles/colorManipulator';
 import { ListItem } from 'material-ui/List';
-
+import { withStyles } from 'material-ui/styles';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent, Fragment } from 'react';
 
@@ -164,7 +163,7 @@ class DashboardDrawer extends PureComponent {
           <div className={openMd ? classes.drawerPaper : classes.drawerPaperClose} />
           <Drawer
             classes={{
-              paper: [classes.drawerPaper, !openMd && classes.drawerPaperClose].join(' '),
+              paper: classNames(classes.drawerPaper, !openMd && classes.drawerPaperClose),
             }}
             variant="permanent"
             open={openMd}

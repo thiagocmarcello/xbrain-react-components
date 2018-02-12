@@ -1,7 +1,8 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
 import { CircularProgress, Button } from 'material-ui';
+import { withStyles } from 'material-ui/styles';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
 
 const styles = theme => ({
   holder: {
@@ -59,35 +60,32 @@ class XButton extends PureComponent {
 
     if (!gutter) return '';
 
-    return gutter
-      .split(' ')
-      .map((direction) => {
-        switch (direction) {
-          case 'all':
-            return [
-              classes.gutterTop,
-              classes.gutterRight,
-              classes.gutterBottom,
-              classes.gutterLeft,
-            ].join(' ');
+    return classNames(gutter.split(' ').map((direction) => {
+      switch (direction) {
+        case 'all':
+          return classNames(
+            classes.gutterTop,
+            classes.gutterRight,
+            classes.gutterBottom,
+            classes.gutterLeft,
+          );
 
-          case 'top':
-            return classes.gutterTop;
+        case 'top':
+          return classes.gutterTop;
 
-          case 'right':
-            return classes.gutterRight;
+        case 'right':
+          return classes.gutterRight;
 
-          case 'bottom':
-            return classes.gutterBottom;
+        case 'bottom':
+          return classes.gutterBottom;
 
-          case 'left':
-            return classes.gutterLeft;
+        case 'left':
+          return classes.gutterLeft;
 
-          default:
-            return '';
-        }
-      })
-      .join(' ');
+        default:
+          return '';
+      }
+    }));
   };
 
   getStyle = () => {
