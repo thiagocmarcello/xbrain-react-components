@@ -3,8 +3,7 @@ import { withStyles } from 'material-ui/styles';
 import { InputLabel } from 'material-ui/Input';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
-
-import { hexToRgb } from '../../utils/color';
+import { fade } from 'material-ui/styles/colorManipulator';
 
 const styles = theme => ({
   root: {
@@ -26,14 +25,14 @@ const styles = theme => ({
     border: `1px solid ${theme.palette.error.main}`,
     '&:focus': {
       borderColor: theme.palette.error.main,
-      boxShadow: `0 0 0 0.2rem rgba(${hexToRgb(theme.palette.error.main)}, .25)`,
+      boxShadow: `0 0 0 0.2rem ${fade(theme.palette.error.main, 0.25)}`,
     },
   },
   selectNoError: {
     border: `1px solid ${theme.palette.grey[100]}`,
     '&:focus': {
       borderColor: theme.palette.primary.main,
-      boxShadow: `0 0 0 0.2rem rgba(${hexToRgb(theme.palette.primary.main)}, .25)`,
+      boxShadow: `0 0 0 0.2rem ${fade(theme.palette.primary.main, 0.25)}`,
     },
   },
   disabled: {

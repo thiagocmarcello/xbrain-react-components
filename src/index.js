@@ -1,5 +1,6 @@
 import XActionButton from './lib/components/ActionButton';
 import XButton from './lib/components/Button';
+import XChip from './lib/components/Chip';
 import XConfirmDialog from './lib/components/ConfirmDialog';
 import XDisplayInfo from './lib/components/DisplayInfo';
 import XDrawer from './lib/components/Drawer';
@@ -18,6 +19,7 @@ import XTypography from './lib/components/Typography';
 export {
   XActionButton,
   XButton,
+  XChip,
   XConfirmDialog,
   XDisplayInfo,
   XDrawer,

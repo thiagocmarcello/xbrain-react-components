@@ -1,9 +1,8 @@
+import { fade } from 'material-ui/styles/colorManipulator';
 import { TextField as TextFieldMui } from 'material-ui';
 import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
-
-import { hexToRgb } from '../../utils/color';
 
 const styles = theme => ({
   root: {
@@ -20,14 +19,14 @@ const styles = theme => ({
       borderColor: theme.palette.error.main,
       '&:focus': {
         borderColor: theme.palette.error.main,
-        boxShadow: `0 0 0 0.2rem rgba(${hexToRgb(theme.palette.error.main)}, .25)`,
+        boxShadow: `0 0 0 0.2rem ${fade(theme.palette.error.main, 0.25)}`,
       },
     },
     '& > textarea': {
       borderColor: theme.palette.error.main,
       '&:focus': {
         borderColor: theme.palette.error.main,
-        boxShadow: `0 0 0 0.2rem rgba(${hexToRgb(theme.palette.error.main)}, .25)`,
+        boxShadow: `0 0 0 0.2rem ${fade(theme.palette.error.main, 0.25)}`,
       },
     },
   },
@@ -43,7 +42,7 @@ const styles = theme => ({
     transition: theme.transitions.create(['border-color', 'box-shadow']),
     '&:focus': {
       borderColor: theme.palette.primary.main,
-      boxShadow: `0 0 0 0.2rem rgba(${hexToRgb(theme.palette.primary.main)}, .25)`,
+      boxShadow: `0 0 0 0.2rem ${fade(theme.palette.primary.main, 0.25)}`,
     },
     '&:disabled': {
       background: theme.palette.grey[50],
