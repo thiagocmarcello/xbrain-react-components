@@ -18,7 +18,7 @@ const styles = theme => ({
 class XPaper extends PureComponent {
   render() {
     const {
-      classes, children, grey, fullWidth, ...rest
+      classes, children, grey, fullWidth, className, ...rest
     } = this.props;
 
     const rootClassName = grey ? classes.grey : null;
@@ -27,7 +27,7 @@ class XPaper extends PureComponent {
       <Paper
         elevation={grey ? 3 : 2}
         classes={{ root: rootClassName }}
-        className={classNames(classes.paper, fullWidth ? classes.fullWidth : '')}
+        className={classNames(classes.paper, fullWidth ? classes.fullWidth : '', className)}
         {...rest}
       >
         {children}
@@ -45,6 +45,7 @@ XPaper.defaultProps = {
 XPaper.propTypes = {
   children: PropTypes.node,
   classes: PropTypes.object.isRequired,
+  className: PropTypes.string,
   fullWidth: PropTypes.bool,
   grey: PropTypes.bool,
 };
