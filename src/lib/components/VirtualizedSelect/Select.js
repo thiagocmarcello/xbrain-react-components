@@ -112,6 +112,9 @@ const styles = theme => ({
       opacity: 1,
     },
   },
+  root: {
+    marginTop: theme.spacing.unit * 3,
+  },
   error: {
     '& .Select-control': {
       borderColor: `${theme.palette.error.main} !important`,
@@ -133,18 +136,9 @@ class Select extends PureComponent {
   handleInputChange = value => (value ? value.toUpperCase() : value);
 
   renderLabel = () => {
-    const {
-      name, classes, label, required,
-    } = this.props;
+    const { name, label, required } = this.props;
     return (
-      <InputLabel
-        error={false}
-        classes={{
-          root: classes.inputLabelRoot,
-        }}
-        shrink
-        htmlFor={name}
-      >
+      <InputLabel error={false} shrink htmlFor={name}>
         {label}
         {required && ' *'}
       </InputLabel>
@@ -213,7 +207,7 @@ class Select extends PureComponent {
     const selectComponent = creatable ? { selectComponent: Creatable } : null;
 
     return (
-      <div>
+      <div className={classes.root}>
         {this.renderLabel()}
         <VirtualizedSelect
           arrowRenderer={this.renderArrow}
