@@ -15,6 +15,7 @@ import XTableHead from './lib/components/TableHead';
 import XTabs from './lib/components/Tabs';
 import XTextField from './lib/components/TextField';
 import XTypography from './lib/components/Typography';
+import XVirtualizedSelect from './lib/components/VirtualizedSelect';
 
 export {
   XActionButton,
@@ -34,4 +35,5 @@ export {
   XTabs,
   XTextField,
   XTypography,
+  XVirtualizedSelect,
 };
