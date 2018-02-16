@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const Option = ({
-  onSelect, option, focusedOption, ...props
+  onSelect, option, focusedOption, labelKey, ...props
 }) => {
   const handleClick = event => onSelect(option, event);
   const { style, key } = props;
   const { height, ...rest } = style;
-  const { label, disabled } = option;
+  const { disabled } = option;
+  const label = option[labelKey];
   const newLabel = label && typeof label === 'string' ? label.toUpperCase() : label;
 
   return (
@@ -33,6 +34,7 @@ Option.propTypes = {
   disabled: PropTypes.bool,
   focusedOption: PropTypes.object.isRequired,
   key: PropTypes.node.isRequired,
+  labelKey: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired,
   option: PropTypes.object.isRequired,
   style: PropTypes.object.isRequired,

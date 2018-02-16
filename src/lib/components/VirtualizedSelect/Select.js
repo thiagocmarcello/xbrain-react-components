@@ -199,6 +199,8 @@ class Select extends PureComponent {
       required,
       error,
       creatable,
+      labelKey,
+      valueKey,
       ...rest
     } = this.props;
 
@@ -214,7 +216,7 @@ class Select extends PureComponent {
           clearAllText={clearAllText}
           clearRenderer={() => <ClearIcon />}
           closeOnSelect={!multiple}
-          filterOptions={createFilterOptions({ options })}
+          filterOptions={createFilterOptions({ options, labelKey, valueKey })}
           id={name}
           joinValues={false}
           multi={multiple}
@@ -228,8 +230,8 @@ class Select extends PureComponent {
           searchable
           simpleValue
           valueComponent={this.renderValue}
-          labelKey="label"
-          valueKey="value"
+          labelKey={labelKey}
+          valueKey={valueKey}
           {...rest}
           {...selectComponent}
           promptTextCreator={this.renderPromptTextCreator}
@@ -244,12 +246,14 @@ Select.defaultProps = {
   clearAllText: 'Remover todos',
   creatable: false,
   error: false,
+  labelKey: 'label',
   multiple: false,
   name: null,
   noResultsText: 'Nenhum resultado encontrado.',
   placeholder: 'Selecione',
   promptTextCreator: null,
   required: null,
+  valueKey: 'value',
 };
 
 Select.propTypes = {
@@ -259,6 +263,7 @@ Select.propTypes = {
   creatable: PropTypes.bool,
   error: PropTypes.bool,
   label: PropTypes.string.isRequired,
+  labelKey: PropTypes.string,
   multiple: PropTypes.bool,
   name: PropTypes.string,
   noResultsText: PropTypes.string,
@@ -266,6 +271,7 @@ Select.propTypes = {
   placeholder: PropTypes.string,
   promptTextCreator: PropTypes.func,
   required: PropTypes.bool,
+  valueKey: PropTypes.string,
 };
 
 export default withStyles(styles)(Select);
