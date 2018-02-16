@@ -16,13 +16,13 @@ is a set of custom components that use material-ui v1 as a basis.
 Using [yarn](https://yarnpkg.com/):
 
 ```bash
-  yarn add xbrain-react-components
+  yarn add xbrain-react-components react-select react-select-fast-filter-options react-virtualized-select
 ```
 
 Using [npm](https://www.npmjs.org/):
 
 ```bash
-  npm install --save xbrain-react-components
+  npm install --save xbrain-react-components react-select react-select-fast-filter-options react-virtualized-select
 ```
 
 ---
