@@ -144,10 +144,10 @@ class Select extends PureComponent {
   };
 
   renderValue = (valueProps) => {
-    const { avatar } = this.props;
-    const {
-      value, value: { label }, children, onRemove,
-    } = valueProps;
+    const { avatar, labelKey } = this.props;
+    const { value, children, onRemove } = valueProps;
+
+    const label = value[labelKey];
 
     if (onRemove) {
       return (
@@ -166,6 +166,7 @@ class Select extends PureComponent {
         </div>
       );
     }
+
     return <div className="Select-value">{children}</div>;
   };
 
