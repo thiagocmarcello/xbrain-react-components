@@ -131,8 +131,6 @@ const styles = theme => ({
 });
 
 class Select extends PureComponent {
-  filterOptions = createFilterOptions({ options: this.props.options });
-
   handleInputChange = value => (value ? value.toUpperCase() : value);
 
   renderLabel = () => {
@@ -216,7 +214,7 @@ class Select extends PureComponent {
           clearAllText={clearAllText}
           clearRenderer={() => <ClearIcon />}
           closeOnSelect={!multiple}
-          filterOptions={this.filterOptions}
+          filterOptions={createFilterOptions({ options })}
           id={name}
           joinValues={false}
           multi={multiple}
@@ -251,6 +249,7 @@ Select.defaultProps = {
   noResultsText: 'Nenhum resultado encontrado.',
   placeholder: 'Selecione',
   promptTextCreator: null,
+  required: null,
 };
 
 Select.propTypes = {
@@ -266,7 +265,7 @@ Select.propTypes = {
   options: PropTypes.array.isRequired,
   placeholder: PropTypes.string,
   promptTextCreator: PropTypes.func,
-  required: PropTypes.bool.isRequired,
+  required: PropTypes.bool,
 };
 
 export default withStyles(styles)(Select);
