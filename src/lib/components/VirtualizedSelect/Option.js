@@ -2,12 +2,16 @@ import { MenuItem } from 'material-ui/Menu';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+const customStyles = {
+  fontSize: 14,
+};
+
 const Option = ({
   onSelect, option, focusedOption, labelKey, ...props
 }) => {
   const handleClick = event => onSelect(option, event);
   const { style, key } = props;
-  const { height, ...rest } = style;
+  const { height, ...styles } = style;
   const { disabled } = option;
   const label = option[labelKey];
   const newLabel = label && typeof label === 'string' ? label.toUpperCase() : label;
@@ -17,7 +21,7 @@ const Option = ({
       disabled={disabled}
       key={key}
       onClick={handleClick}
-      style={rest}
+      style={{ ...styles, ...customStyles }}
       selected={option === focusedOption}
       ContainerComponent="div"
     >
