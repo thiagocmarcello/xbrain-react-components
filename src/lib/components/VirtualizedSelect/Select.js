@@ -33,6 +33,8 @@ const styles = theme => ({
       height: 'auto',
       minHeight: '36px',
       transition: theme.transitions.create(['border-color', 'box-shadow']),
+      fontFamily: theme.typography.fontFamily,
+      fontSize: theme.typography.pxToRem(14),
     },
     '.Select-multi-value-wrapper': {
       alignItems: 'center',
@@ -233,6 +235,7 @@ class Select extends PureComponent {
           valueComponent={this.renderValue}
           labelKey={labelKey}
           valueKey={valueKey}
+          tabSelectsValue={false}
           {...rest}
           {...selectComponent}
           promptTextCreator={this.renderPromptTextCreator}
