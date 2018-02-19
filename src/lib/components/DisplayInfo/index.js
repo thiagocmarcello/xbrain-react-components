@@ -1,6 +1,7 @@
 import { FormControl } from 'material-ui/Form';
 import { InputLabel } from 'material-ui/Input';
 import { withStyles } from 'material-ui/styles';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
@@ -11,8 +12,10 @@ const styles = theme => ({
   textRoot: {
     alignItems: 'center',
     display: 'flex',
-    marginTop: theme.spacing.unit * 2,
     minHeight: 36,
+  },
+  dense: {
+    marginTop: theme.spacing.unit * 2,
   },
   text: {
     flex: 1,
@@ -44,18 +47,25 @@ class DisplayInfo extends PureComponent {
 
   render() {
     const {
-      label, value, formControlProps, classes, fullWidth, uppercase,
+      label,
+      value,
+      formControlProps,
+      classes,
+      fullWidth,
+      uppercase,
+      dense,
+      margin,
     } = this.props;
 
     return (
       <FormControl
         fullWidth={fullWidth}
-        margin="dense"
+        margin={margin}
         {...formControlProps}
         className={classes.formControl}
       >
         <InputLabel shrink>{label}</InputLabel>
-        <div className={classes.textRoot}>
+        <div className={classNames(classes.textRoot, dense ? classes.dense : '')}>
           {this.renderStartAdornment(this.props)}
           <XTypography className={classes.text}>
             {uppercase ? toString(value).toUpperCase() : value}
@@ -68,19 +78,23 @@ class DisplayInfo extends PureComponent {
 }
 
 DisplayInfo.defaultProps = {
+  dense: false,
   endAdornment: null,
   formControlProps: null,
   fullWidth: true,
+  margin: 'dense',
   startAdornment: null,
   uppercase: true,
 };
 
 DisplayInfo.propTypes = {
   classes: PropTypes.object.isRequired,
+  dense: PropTypes.bool,
   endAdornment: PropTypes.node,
   formControlProps: PropTypes.object,
   fullWidth: PropTypes.bool,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  margin: PropTypes.oneOf(['none', 'dense', 'normal']),
   startAdornment: PropTypes.node,
   uppercase: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
