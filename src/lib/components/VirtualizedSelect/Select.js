@@ -1,5 +1,6 @@
 import { Creatable } from 'react-select';
 import { fade } from 'material-ui/styles/colorManipulator';
+import { FormControl } from 'material-ui/Form';
 import { InputLabel } from 'material-ui/Input';
 import { Typography } from 'material-ui';
 import { withStyles } from 'material-ui/styles';
@@ -210,37 +211,39 @@ class Select extends PureComponent {
     const selectComponent = creatable ? { selectComponent: Creatable } : null;
 
     return (
-      <div className={classes.root}>
-        {this.renderLabel()}
-        <VirtualizedSelect
-          arrowRenderer={this.renderArrow}
-          className={error ? classes.error : ''}
-          clearable={multiple}
-          clearAllText={clearAllText}
-          clearRenderer={() => <ClearIcon />}
-          closeOnSelect={!multiple}
-          filterOptions={createFilterOptions({ options, labelKey, valueKey })}
-          id={name}
-          joinValues={false}
-          multi={multiple}
-          noResultsText={<Typography variant="body1">{this.props.noResultsText}</Typography>}
-          onInputChange={this.handleInputChange}
-          optionHeight={ITEM_HEIGHT}
-          optionRenderer={Option}
-          options={options}
-          placeholder={placeholder}
-          removeSelected
-          searchable
-          simpleValue
-          valueComponent={this.renderValue}
-          labelKey={labelKey}
-          valueKey={valueKey}
-          tabSelectsValue={false}
-          {...rest}
-          {...selectComponent}
-          promptTextCreator={this.renderPromptTextCreator}
-        />
-      </div>
+      <FormControl>
+        <div className={classes.root}>
+          {this.renderLabel()}
+          <VirtualizedSelect
+            arrowRenderer={this.renderArrow}
+            className={error ? classes.error : ''}
+            clearable={multiple}
+            clearAllText={clearAllText}
+            clearRenderer={() => <ClearIcon />}
+            closeOnSelect={!multiple}
+            filterOptions={createFilterOptions({ options, labelKey, valueKey })}
+            id={name}
+            joinValues={false}
+            multi={multiple}
+            noResultsText={<Typography variant="body1">{this.props.noResultsText}</Typography>}
+            onInputChange={this.handleInputChange}
+            optionHeight={ITEM_HEIGHT}
+            optionRenderer={Option}
+            options={options}
+            placeholder={placeholder}
+            removeSelected
+            searchable
+            simpleValue
+            valueComponent={this.renderValue}
+            labelKey={labelKey}
+            valueKey={valueKey}
+            tabSelectsValue={false}
+            {...rest}
+            {...selectComponent}
+            promptTextCreator={this.renderPromptTextCreator}
+          />
+        </div>
+      </FormControl>
     );
   }
 }
