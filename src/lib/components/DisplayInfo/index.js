@@ -65,7 +65,7 @@ class DisplayInfo extends PureComponent {
         className={classes.formControl}
       >
         <InputLabel shrink>{label}</InputLabel>
-        <div className={classNames(classes.textRoot, dense ? classes.dense : '')}>
+        <div className={classNames(classes.textRoot, !dense ? classes.dense : '')}>
           {this.renderStartAdornment(this.props)}
           <XTypography className={classes.text}>
             {uppercase ? toString(value).toUpperCase() : value}
