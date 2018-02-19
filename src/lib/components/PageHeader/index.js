@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
 import { Typography } from 'material-ui';
 import { withStyles } from 'material-ui/styles';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
 
 const PageHeaderHOC = ({ image, ...rest }) => {
   const styles = theme => ({
     header: {
       backgroundColor: theme.palette.primary.main,
-      marginBottom: 24,
       [theme.breakpoints.up('lg')]: {
         backgroundImage: `linear-gradient(to right, ${theme.palette.primary.main} 0%, ${
           theme.palette.primary.all[700]
@@ -23,6 +23,15 @@ const PageHeaderHOC = ({ image, ...rest }) => {
         backgroundPosition: 'right bottom',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
+      },
+    },
+    gutterBottom: {
+      marginBottom: theme.spacing.unit,
+      [theme.breakpoints.up('sm')]: {
+        marginBottom: theme.spacing.unit * 2,
+      },
+      [theme.breakpoints.up('lg')]: {
+        marginBottom: theme.spacing.unit * 3,
       },
     },
     text: {
@@ -76,9 +85,10 @@ const PageHeaderHOC = ({ image, ...rest }) => {
 
     render() {
       const { classes } = this.props;
-      const { title, subheading } = rest;
+      const { title, subheading, gutterBottom } = rest;
+
       return (
-        <header className={classes.header}>
+        <header className={classNames(classes.header, gutterBottom ? classes.gutterBottom : '')}>
           <div className={classes.headerInner}>
             {this.renderTitle(title, classes)}
             {this.renderSubheading(subheading, classes)}
@@ -97,15 +107,17 @@ const PageHeaderHOC = ({ image, ...rest }) => {
 };
 
 PageHeaderHOC.defaultProps = {
-  title: null,
-  subheading: null,
+  gutterBottom: true,
   image: null,
+  subheading: null,
+  title: null,
 };
 
 PageHeaderHOC.propTypes = {
-  title: PropTypes.string,
-  subheading: PropTypes.string,
+  gutterBottom: PropTypes.bool,
   image: PropTypes.node,
+  subheading: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default PageHeaderHOC;

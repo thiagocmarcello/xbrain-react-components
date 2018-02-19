@@ -19,9 +19,11 @@ const styles = theme => ({
   },
   startAdornment: {
     marginRight: theme.spacing.unit / 2,
+    display: 'inline-flex',
   },
   endAdornment: {
     marginLeft: theme.spacing.unit / 2,
+    display: 'inline-flex',
   },
 });
 
