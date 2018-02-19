@@ -101,12 +101,14 @@ Head for data table.
 
 `data.numeric:{true|false}` - (optional) - If `true`, content will align to the right.
 
+`data.visible:{true|false}` - (optional) - If `false`, not present content.
+
 `data.padding:{default'|'checkbox'|'dense'|'none'}` - (optional) - If present replace padding cell padding
 
 #### Exemple
 
 ```jsx
-const columns = [{ name: 'id', orderKey: 'id', numeric: true }, { name: 'name', orderKey: 'name' }];
+const columns = [{ name: 'id', orderKey: 'id', numeric: true }, { name: 'name', orderKey: 'name', visible: false }];
 
 const order = {
   orderBy: 'id',

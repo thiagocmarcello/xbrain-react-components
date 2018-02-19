@@ -11,6 +11,8 @@ export default class TableHead extends PureComponent {
     }
   };
 
+  isColumnVisible = row => row.visible !== false;
+
   renderContent = (column) => {
     const {
       enterDelay, orderDirection, orderBy, titleToolTip, data,
@@ -41,7 +43,7 @@ export default class TableHead extends PureComponent {
       return (
         <TableHeadMui>
           <TableRow>
-            {columns.map((column, index) => (
+            {columns.filter(this.isColumnVisible).map((column, index) => (
               <TableCell
                 key={index}
                 padding={column.padding || index % 2 === 0 ? 'none' : 'dense'}
