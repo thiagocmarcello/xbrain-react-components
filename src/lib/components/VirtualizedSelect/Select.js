@@ -211,7 +211,7 @@ class Select extends PureComponent {
     const selectComponent = creatable ? { selectComponent: Creatable } : null;
 
     return (
-      <FormControl>
+      <FormControl fullWidth>
         <div className={classes.root}>
           {this.renderLabel()}
           <VirtualizedSelect
