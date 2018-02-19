@@ -14,8 +14,11 @@ const styles = theme => ({
     display: 'flex',
     minHeight: 36,
   },
-  dense: {
+  normal: {
     marginTop: theme.spacing.unit * 2,
+  },
+  dense: {
+    marginTop: theme.spacing.unit,
   },
   text: {
     flex: 1,
@@ -65,7 +68,7 @@ class DisplayInfo extends PureComponent {
         className={classes.formControl}
       >
         <InputLabel shrink>{label}</InputLabel>
-        <div className={classNames(classes.textRoot, !dense ? classes.dense : '')}>
+        <div className={classNames(classes.textRoot, dense ? classes.dense : classes.normal)}>
           {this.renderStartAdornment(this.props)}
           <XTypography className={classes.text}>
             {uppercase ? toString(value).toUpperCase() : value}
