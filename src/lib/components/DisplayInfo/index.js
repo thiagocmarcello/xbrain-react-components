@@ -14,11 +14,14 @@ const styles = theme => ({
     display: 'flex',
     minHeight: 36,
   },
+  small: {
+    marginTop: theme.spacing.unit * 1.5,
+  },
   normal: {
     marginTop: theme.spacing.unit * 2,
   },
-  dense: {
-    marginTop: theme.spacing.unit,
+  large: {
+    marginTop: theme.spacing.unit * 3,
   },
   text: {
     flex: 1,
@@ -56,7 +59,7 @@ class DisplayInfo extends PureComponent {
       classes,
       fullWidth,
       uppercase,
-      dense,
+      size,
       margin,
     } = this.props;
 
@@ -68,7 +71,7 @@ class DisplayInfo extends PureComponent {
         className={classes.formControl}
       >
         <InputLabel shrink>{label}</InputLabel>
-        <div className={classNames(classes.textRoot, dense ? classes.dense : classes.normal)}>
+        <div className={classNames(classes.textRoot, classes[size])}>
           {this.renderStartAdornment(this.props)}
           <XTypography className={classes.text}>
             {uppercase ? toString(value).toUpperCase() : value}
@@ -81,23 +84,23 @@ class DisplayInfo extends PureComponent {
 }
 
 DisplayInfo.defaultProps = {
-  dense: false,
   endAdornment: null,
   formControlProps: null,
   fullWidth: true,
   margin: 'dense',
+  size: 'normal',
   startAdornment: null,
   uppercase: true,
 };
 
 DisplayInfo.propTypes = {
   classes: PropTypes.object.isRequired,
-  dense: PropTypes.bool,
   endAdornment: PropTypes.node,
   formControlProps: PropTypes.object,
   fullWidth: PropTypes.bool,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   margin: PropTypes.oneOf(['none', 'dense', 'normal']),
+  size: PropTypes.oneOf(['small', 'normal', 'large']),
   startAdornment: PropTypes.node,
   uppercase: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
