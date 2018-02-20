@@ -10,26 +10,40 @@ class XTabs extends PureComponent {
     tabActive: 0,
   };
 
-  handleTabChange = (event, tabActive) => {
+  handleChange = (event, tabActive) => {
     this.setState({ tabActive });
   };
 
   render() {
-    const { tabs } = this.props;
+    const { tabs, tabProps, ...rest } = this.props;
     const { tabActive } = this.state;
+    const currentTab = tabs[tabActive];
+
     return (
       <Fragment>
-        <Tabs value={tabActive} onChange={this.handleTabChange} {...this.props}>
-          {tabs.map((tab, index) => <Tab key={index} label={tab.label} disabled={tab.disabled} />)}
+        <Tabs value={tabActive} onChange={this.handleChange} {...rest}>
+          {tabs.map((tab, index) => {
+            const key = `tabkey-${index}`;
+            return <Tab key={key} label={tab.label} disabled={tab.disabled} {...tabProps} />;
+          })}
         </Tabs>
-        {<TabContainer>{tabs[tabActive].component}</TabContainer>}
+        {
+          <TabContainer disableGutters={currentTab.disableGutters}>
+            {currentTab.component}
+          </TabContainer>
+        }
       </Fragment>
     );
   }
 }
 
+XTabs.defaultProps = {
+  tabProps: null,
+};
+
 XTabs.propTypes = {
   tabs: PropTypes.array.isRequired,
+  tabProps: PropTypes.object,
 };
 
 export default XTabs;

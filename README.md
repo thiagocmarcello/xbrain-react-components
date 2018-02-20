@@ -108,7 +108,10 @@ Head for data table.
 #### Exemple
 
 ```jsx
-const columns = [{ name: 'id', orderKey: 'id', numeric: true }, { name: 'name', orderKey: 'name', visible: false }];
+const columns = [
+  { name: 'id', orderKey: 'id', numeric: true },
+  { name: 'name', orderKey: 'name', visible: false },
+];
 
 const order = {
   orderBy: 'id',
@@ -162,11 +165,13 @@ const tabs = [
     label: 'information',
     disabled: false,
     component: <InformationScreen {...this.props} />,
+    disableGutters: false,
   },
   {
     label: 'Details',
     disabled: false,
     component: <DetailsScreen {...this.props} />,
+    disableGutters: true,
   },
 ];
 

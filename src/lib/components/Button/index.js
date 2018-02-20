@@ -44,6 +44,10 @@ const styles = theme => ({
     bottom: theme.spacing.unit * 3,
     right: theme.spacing.unit * 3,
   },
+  sizeExtraLarge: {
+    minHeight: 56,
+    padding: theme.spacing.unit * 2,
+  },
 });
 
 const VARIANTS = {
@@ -52,6 +56,13 @@ const VARIANTS = {
   FAB: 'fab',
   GHOST: 'ghost',
   FLOATING: 'floating',
+};
+
+const SIZES = {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large',
+  EXTRA_LARGE: 'xlarge',
 };
 
 class XButton extends PureComponent {
@@ -118,6 +129,17 @@ class XButton extends PureComponent {
     }
   };
 
+  getSizeStyle = () => {
+    const { size, classes } = this.props;
+
+    switch (size) {
+      case SIZES.EXTRA_LARGE:
+        return classes.sizeExtraLarge;
+      default:
+        return '';
+    }
+  };
+
   renderLabel = () => {
     const { loading, loadingText, children } = this.props;
     return loading ? loadingText : children;
@@ -132,11 +154,14 @@ class XButton extends PureComponent {
       theme,
       fullWidth,
       variant,
+      size,
       ...props
     } = this.props;
 
     const gutters = this.getGutter();
     const color = variant === VARIANTS.FLOATING ? 'secondary' : 'primary';
+    const rootStyle = classNames(this.getStyle(), this.getSizeStyle());
+    const computedSize = size === SIZES.EXTRA_LARGE ? SIZES.LARGE : size;
 
     return (
       <div className={`${fullWidth ? classes.holderFullWidth : classes.holder} ${gutters}`}>
@@ -144,8 +169,9 @@ class XButton extends PureComponent {
           variant={this.getVariant()}
           disabled={loading}
           color={color}
-          classes={{ root: this.getStyle(), fullWidth: classes.fullWidth }}
+          classes={{ root: rootStyle, fullWidth: classes.fullWidth }}
           fullWidth={fullWidth}
+          size={computedSize}
           {...props}
         >
           {this.renderLabel()}
@@ -163,7 +189,8 @@ XButton.defaultProps = {
   gutter: null,
   loading: false,
   loadingText: 'aguarde',
-  variant: 'raised',
+  variant: VARIANTS.RAISED,
+  size: SIZES.MEDIUM,
 };
 
 XButton.propTypes = {
@@ -181,6 +208,7 @@ XButton.propTypes = {
     VARIANTS.GHOST,
     VARIANTS.FLOATING,
   ]),
+  size: PropTypes.oneOf([SIZES.SMALL, SIZES.MEDIUM, SIZES.LARGE, SIZES.EXTRA_LARGE]),
 };
 
 export default withStyles(styles, { withTheme: true })(XButton);
