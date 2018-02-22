@@ -1,4 +1,5 @@
 import XActionButton from './lib/components/ActionButton';
+import XAlert from './lib/components/Alert';
 import XButton from './lib/components/Button';
 import XChip from './lib/components/Chip';
 import XConfirmDialog from './lib/components/ConfirmDialog';
@@ -19,6 +20,7 @@ import XVirtualizedSelect from './lib/components/VirtualizedSelect';
 
 export {
   XActionButton,
+  XAlert,
   XButton,
   XChip,
   XConfirmDialog,

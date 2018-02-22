@@ -1,6 +1,6 @@
 {
   "name": "xbrain-react-components",
-  "version": "1.0.86",
+  "version": "1.0.87",
   "description": "Useful React Components for daily use.",
   "main": "dist/xbrain-react-components.min.js",
   "directories": {
@@ -15,7 +15,11 @@
     "type": "git",
     "url": "https://github.com/xbrain-dev/xbrain-react-components.git"
   },
-  "keywords": ["xbrain", "xbrain react components", "react components"],
+  "keywords": [
+    "xbrain",
+    "xbrain react components",
+    "react components"
+  ],
   "author": "Diego Rodrigues Vieira",
   "license": "MIT",
   "dependencies": {
@@ -31,19 +35,19 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.2.1",
+    "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
-    "eslint": "^4.18.0",
+    "eslint": "^4.18.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.6.1",
-    "jest": "^22.3.0",
+    "eslint-plugin-react": "^7.7.0",
+    "jest": "^22.4.0",
     "webpack": "^3.11.0"
   },
   "peerDependencies": {
