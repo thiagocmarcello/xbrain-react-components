@@ -8,6 +8,8 @@ import XDrawer from './lib/components/Drawer';
 import XExternalRedirect from './lib/components/ExternalRedirect';
 import XFloatingContainer from './lib/components/FloatingContainer';
 import XLogoProgress from './lib/components/LogoProgress';
+import XMasonry from './lib/components/Masonry/Masonry';
+import XMasonryItem from './lib/components/Masonry/MasonryItem';
 import XPageHeader from './lib/components/PageHeader';
 import XPaper from './lib/components/Paper';
 import XSelect from './lib/components/Select';
@@ -29,6 +31,8 @@ export {
   XExternalRedirect,
   XFloatingContainer,
   XLogoProgress,
+  XMasonry,
+  XMasonryItem,
   XPageHeader,
   XPaper,
   XSelect,

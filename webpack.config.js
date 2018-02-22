@@ -14,6 +14,7 @@ const config = {
     'material-ui-icons/ArrowDropUp': 'material-ui-icons/ArrowDropUp',
     'material-ui-icons/Clear': 'material-ui-icons/Clear',
     'material-ui': 'material-ui',
+    'material-ui/colors': 'material-ui/colors',
     'material-ui/Dialog': 'material-ui/Dialog',
     'material-ui/Form': 'material-ui/Form',
     'material-ui/Input': 'material-ui/Input',
