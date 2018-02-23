@@ -1,9 +1,24 @@
+import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import React, { PureComponent, Fragment } from 'react';
-import { Tab } from 'material-ui/Tabs';
-import { Tabs } from 'material-ui';
+import Tabs, { Tab } from 'material-ui/Tabs';
 
 import TabContainer from './TabContainer';
+
+const styles = theme => ({
+  borderBottom: {
+    position: 'relative',
+    '&:after': {
+      backgroundColor: theme.palette.divider,
+      bottom: 0,
+      content: '""',
+      height: 1,
+      position: 'absolute',
+      width: '100%',
+      zIndex: 1,
+    },
+  },
+});
 
 class XTabs extends PureComponent {
   state = {
@@ -15,18 +30,24 @@ class XTabs extends PureComponent {
   };
 
   render() {
-    const { tabs, tabProps, ...rest } = this.props;
+    const {
+      tabs, tabProps, classes, borderBottom, ...rest
+    } = this.props;
     const { tabActive } = this.state;
     const currentTab = tabs[tabActive];
+    const borderBottomStyle = borderBottom ? classes.borderBottom : '';
 
     return (
       <Fragment>
-        <Tabs value={tabActive} onChange={this.handleChange} {...rest}>
-          {tabs.map((tab, index) => {
-            const key = `tabkey-${index}`;
-            return <Tab key={key} label={tab.label} disabled={tab.disabled} {...tabProps} />;
-          })}
-        </Tabs>
+        <div className={borderBottomStyle}>
+          <Tabs value={tabActive} onChange={this.handleChange} {...rest}>
+            {tabs.map((tab, index) => {
+              const key = `tabkey-${index}`;
+              const label = tab.label ? { label: tab.label } : null;
+              return <Tab key={key} {...label} disabled={tab.disabled} {...tab.tabProps} />;
+            })}
+          </Tabs>
+        </div>
         {
           <TabContainer disableGutters={currentTab.disableGutters}>
             {currentTab.component}
@@ -38,12 +59,15 @@ class XTabs extends PureComponent {
 }
 
 XTabs.defaultProps = {
+  borderBottom: false,
   tabProps: null,
 };
 
 XTabs.propTypes = {
-  tabs: PropTypes.array.isRequired,
+  borderBottom: PropTypes.bool,
+  classes: PropTypes.object.isRequired,
   tabProps: PropTypes.object,
+  tabs: PropTypes.array.isRequired,
 };
 
-export default XTabs;
+export default withStyles(styles)(XTabs);

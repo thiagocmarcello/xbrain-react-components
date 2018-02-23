@@ -11,7 +11,9 @@ const styles = theme => ({
 class TabContainer extends PureComponent {
   render() {
     const { children, classes, disableGutters } = this.props;
-    return <div className={!disableGutters ? classes.gutter : ''}>{children}</div>;
+    const gutterStyle = !disableGutters ? classes.gutter : '';
+
+    return <div className={gutterStyle}>{children}</div>;
   }
 }
 
