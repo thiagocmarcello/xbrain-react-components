@@ -52,22 +52,23 @@ const Select = ({
   classes, label, name, InputLabelProps, error, required, ...props
 }) => (
   <Fragment>
-    <InputLabel
-      error={false}
-      classes={{
-        root: classes.inputLabelRoot,
-      }}
-      shrink
-      htmlFor={name}
-      {...InputLabelProps}
-    >
-      {label}
-      {required && ' *'}
-    </InputLabel>
+    {label && (
+      <InputLabel
+        error={false}
+        classes={{
+          root: classes.inputLabelRoot,
+        }}
+        shrink
+        htmlFor={name}
+        {...InputLabelProps}
+      >
+        {label} {required && ' *'}
+      </InputLabel>
+    )}
     <SelectMui
       disableUnderline
       classes={{
-        root: classes.root,
+        root: label ? classes.root : '',
         select: classNames(classes.select, error ? classes.selectError : classes.selectNoError),
         icon: classes.icon,
         disabled: classes.disabled,
@@ -81,6 +82,7 @@ const Select = ({
 Select.defaultProps = {
   error: false,
   InputLabelProps: null,
+  label: null,
   required: false,
 };
 
@@ -88,7 +90,7 @@ Select.propTypes = {
   classes: PropTypes.object.isRequired,
   error: PropTypes.bool,
   InputLabelProps: PropTypes.object,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   name: PropTypes.string.isRequired,
   required: PropTypes.bool,
 };
