@@ -25,14 +25,32 @@ class XTabs extends PureComponent {
     tabActive: 0,
   };
 
+  componentWillMount() {
+    this.beforeInitialize();
+  }
+
+  beforeInitialize = () => {
+    const { defaultTab } = this.props;
+    if (defaultTab) {
+      this.setState({ tabActive: defaultTab });
+    }
+  };
+
   handleChange = (event, tabActive) => {
+    const { onChange } = this.props;
+
+    if (onChange) {
+      onChange(event, tabActive);
+    }
+
     this.setState({ tabActive });
   };
 
   render() {
     const {
-      tabs, tabProps, classes, borderBottom, ...rest
+      tabs, tabProps, classes, borderBottom, defaultTab, onChange, ...rest
     } = this.props;
+
     const { tabActive } = this.state;
     const currentTab = tabs[tabActive];
     const borderBottomStyle = borderBottom ? classes.borderBottom : '';
@@ -60,12 +78,16 @@ class XTabs extends PureComponent {
 
 XTabs.defaultProps = {
   borderBottom: false,
+  defaultTab: 0,
+  onChange: null,
   tabProps: null,
 };
 
 XTabs.propTypes = {
   borderBottom: PropTypes.bool,
   classes: PropTypes.object.isRequired,
+  defaultTab: PropTypes.number,
+  onChange: PropTypes.func,
   tabProps: PropTypes.object,
   tabs: PropTypes.array.isRequired,
 };
