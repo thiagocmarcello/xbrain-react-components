@@ -134,6 +134,39 @@ const styles = theme => ({
 });
 
 class Select extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      filterOptions: null,
+    };
+  }
+
+  componentWillMount() {
+    this.setFilter(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.handleFilter(nextProps);
+  }
+
+  setFilter = props =>
+    this.setState({
+      filterOptions: createFilterOptions({
+        options: props.options,
+        labelKey: props.labelKey,
+        valueKey: props.valueKey,
+      }),
+    });
+
+  handleFilter = (props) => {
+    const { options } = props;
+
+    if (options !== this.props.options) {
+      this.setFilter(props);
+    }
+  };
+
   handleInputChange = value => (value ? value.toUpperCase() : value);
 
   renderLabel = () => {
@@ -208,6 +241,7 @@ class Select extends PureComponent {
       ...rest
     } = this.props;
 
+    const { filterOptions } = this.state;
     const selectComponent = creatable ? { selectComponent: Creatable } : null;
 
     return (
@@ -221,7 +255,7 @@ class Select extends PureComponent {
             clearAllText={clearAllText}
             clearRenderer={() => <ClearIcon />}
             closeOnSelect={!multiple}
-            filterOptions={createFilterOptions({ options, labelKey, valueKey })}
+            filterOptions={filterOptions}
             id={name}
             joinValues={false}
             multi={multiple}
