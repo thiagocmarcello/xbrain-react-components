@@ -70,22 +70,24 @@ export default class TableHead extends PureComponent {
 }
 
 TableHead.defaultProps = {
-  enterDelay: 300,
   actions: false,
   actionsLabel: 'Ações',
-  titleToolTip: 'Ordenar',
-  orderDirection: 'asc',
+  data: null,
+  enterDelay: 300,
+  onOrderChange: null,
   orderBy: 'id',
+  orderDirection: 'asc',
+  titleToolTip: 'Ordenar',
 };
 
 TableHead.propTypes = {
-  columns: PropTypes.array.isRequired,
-  orderBy: PropTypes.string,
-  orderDirection: PropTypes.string,
-  enterDelay: PropTypes.number,
-  titleToolTip: PropTypes.string,
   actions: PropTypes.bool,
   actionsLabel: PropTypes.string,
-  onOrderChange: PropTypes.func,
+  columns: PropTypes.array.isRequired,
   data: PropTypes.array,
+  enterDelay: PropTypes.number,
+  onOrderChange: PropTypes.func,
+  orderBy: PropTypes.string,
+  orderDirection: PropTypes.string,
+  titleToolTip: PropTypes.string,
 };

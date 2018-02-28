@@ -38,6 +38,7 @@ class XPaper extends PureComponent {
 
 XPaper.defaultProps = {
   children: null,
+  className: null,
   fullWidth: false,
   grey: false,
 };
