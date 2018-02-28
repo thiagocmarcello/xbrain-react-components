@@ -13,10 +13,8 @@ export default class TableHead extends PureComponent {
 
   isColumnVisible = row => row.visible !== false;
 
-  renderContent = (column) => {
-    const {
-      enterDelay, orderDirection, orderBy, titleToolTip, data,
-    } = this.props;
+  renderContent = column => {
+    const { enterDelay, orderDirection, orderBy, titleToolTip, data } = this.props;
     if (Array.isArray(data) && data.length && column.orderKey) {
       return (
         <Tooltip
@@ -86,6 +84,6 @@ TableHead.propTypes = {
   titleToolTip: PropTypes.string,
   actions: PropTypes.bool,
   actionsLabel: PropTypes.string,
-  onOrderChange: PropTypes.func.isRequired,
-  data: PropTypes.array.isRequired,
+  onOrderChange: PropTypes.func,
+  data: PropTypes.array,
 };
