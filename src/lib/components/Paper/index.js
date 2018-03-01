@@ -30,7 +30,7 @@ class XPaper extends PureComponent {
       classes, children, variant, fullWidth, className, ...rest
     } = this.props;
 
-    const rootClassName = variant === VARIANTS.DEFAULT ? classes.default : VARIANTS.GREY;
+    const rootClassName = variant === VARIANTS.DEFAULT ? classes.default : classes.grey;
 
     return (
       <Paper
