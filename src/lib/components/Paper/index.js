@@ -8,6 +8,9 @@ const styles = theme => ({
     paddingTop: theme.spacing.unit * 3,
     paddingBottom: theme.spacing.unit * 3,
   }),
+  default: {
+    backgroundColor: theme.palette.common.white,
+  },
   grey: {
     backgroundColor: theme.palette.grey[50],
   },
@@ -15,17 +18,23 @@ const styles = theme => ({
     width: '100%',
   },
 });
+
+const VARIANTS = {
+  DEFAULT: 'default',
+  GREY: 'grey',
+};
+
 class XPaper extends PureComponent {
   render() {
     const {
-      classes, children, grey, fullWidth, className, ...rest
+      classes, children, variant, fullWidth, className, ...rest
     } = this.props;
 
-    const rootClassName = grey ? classes.grey : null;
+    const rootClassName = variant === VARIANTS.DEFAULT ? classes.default : VARIANTS.GREY;
 
     return (
       <Paper
-        elevation={grey ? 3 : 2}
+        elevation={VARIANTS.GREY ? 3 : 2}
         classes={{ root: rootClassName }}
         className={classNames(classes.paper, fullWidth ? classes.fullWidth : '', className)}
         {...rest}
@@ -40,7 +49,7 @@ XPaper.defaultProps = {
   children: null,
   className: null,
   fullWidth: false,
-  grey: false,
+  variant: VARIANTS.DEFAULT,
 };
 
 XPaper.propTypes = {
@@ -48,7 +57,7 @@ XPaper.propTypes = {
   classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   fullWidth: PropTypes.bool,
-  grey: PropTypes.bool,
+  variant: PropTypes.oneOf([VARIANTS.GREY]),
 };
 
 export default withStyles(styles)(XPaper);
