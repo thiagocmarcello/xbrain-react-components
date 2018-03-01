@@ -57,7 +57,7 @@ XPaper.propTypes = {
   classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   fullWidth: PropTypes.bool,
-  variant: PropTypes.oneOf([VARIANTS.GREY]),
+  variant: PropTypes.oneOf([VARIANTS.DEFAULT, VARIANTS.GREY]),
 };
 
 export default withStyles(styles)(XPaper);
