@@ -6,7 +6,7 @@ import React, { PureComponent } from 'react';
 
 import XTypography from '../Typography';
 
-import NoResults from '../Svg/NoResults';
+import NoResultImage from '../Svg/NoResult';
 
 const styles = theme => ({
   noReults: {
@@ -17,8 +17,9 @@ const styles = theme => ({
     textAlign: 'center',
   },
   illustration: {
-    width: 148,
     height: 160,
+    margin: '0 auto',
+    width: 148,
   },
 });
 
@@ -37,9 +38,7 @@ class TableEmpty extends PureComponent {
     const { classes, noResultsText } = this.props;
     return (
       <div className={classes.noReults}>
-        <div className={classes.illustration}>
-          <NoResults />
-        </div>
+        <div className={classes.illustration}>{<NoResultImage />}</div>
         <XTypography variant="body1" align="center" gutterTop="2x">
           {noResultsText}
         </XTypography>
