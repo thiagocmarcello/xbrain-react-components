@@ -38,15 +38,8 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(png|jpg|gif|svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[hash:8].[ext]',
-            },
-          },
-        ],
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
       },
       {
         test: /\.js$/,
