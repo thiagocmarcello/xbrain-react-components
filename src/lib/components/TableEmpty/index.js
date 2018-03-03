@@ -10,11 +10,15 @@ import noResultImage from '../../assets/no-result.svg';
 
 const styles = theme => ({
   noReults: {
-    paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
+    paddingTop: theme.spacing.unit * 2,
   },
   tableCell: {
     textAlign: 'center',
+  },
+  illustration: {
+    width: 148,
+    height: 160,
   },
 });
 
@@ -33,7 +37,7 @@ class TableEmpty extends PureComponent {
     const { classes, noResultsText } = this.props;
     return (
       <div className={classes.noReults}>
-        <img src={noResultImage} alt="" height="160" />
+        <div className={classes.illustration}>{noResultImage}</div>
         <XTypography variant="body1" align="center" gutterTop="2x">
           {noResultsText}
         </XTypography>
