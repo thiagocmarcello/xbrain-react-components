@@ -1,6 +1,6 @@
 {
   "name": "xbrain-react-components",
-  "version": "1.0.97",
+  "version": "1.0.98",
   "description": "Useful React Components for daily use.",
   "main": "dist/xbrain-react-components.min.js",
   "directories": {
@@ -43,6 +43,7 @@
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "file-loader": "^1.1.11",
     "jest": "^22.4.2",
     "webpack": "^3.11.0"
   },
