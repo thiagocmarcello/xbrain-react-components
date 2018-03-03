@@ -120,4 +120,4 @@ XAlert.propTypes = {
   ]),
 };
 
-export default withStyles(styles)(XAlert);
+export default withStyles(styles, { name: 'XAlert' })(XAlert);

@@ -95,4 +95,4 @@ Select.propTypes = {
   required: PropTypes.bool,
 };
 
-export default withStyles(styles)(Select);
+export default withStyles(styles, { name: 'XSelect' })(Select);

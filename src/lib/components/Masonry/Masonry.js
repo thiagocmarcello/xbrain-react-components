@@ -36,7 +36,7 @@ const MansoryHoc = ({ columns, ...rest }) => {
     classes: PropTypes.object.isRequired,
   };
 
-  const MasonryContainer = withStyles(styles)(Masonry);
+  const MasonryContainer = withStyles(styles, { name: 'XMasonry' })(Masonry);
   return <MasonryContainer />;
 };
 

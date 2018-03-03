@@ -211,4 +211,4 @@ XButton.propTypes = {
   size: PropTypes.oneOf([SIZES.SMALL, SIZES.MEDIUM, SIZES.LARGE, SIZES.EXTRA_LARGE]),
 };
 
-export default withStyles(styles, { withTheme: true })(XButton);
+export default withStyles(styles, { withTheme: true, name: 'XButton' })(XButton);

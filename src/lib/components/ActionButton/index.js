@@ -87,4 +87,4 @@ ActionButton.propTypes = {
   gutter: PropTypes.bool,
 };
 
-export default withStyles(styles)(ActionButton);
+export default withStyles(styles, { name: 'XActionButton' })(ActionButton);

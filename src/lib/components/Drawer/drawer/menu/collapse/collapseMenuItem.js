@@ -22,4 +22,4 @@ CollapseMenuItem.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(CollapseMenuItem);
+export default withStyles(styles, { name: 'XDrawerCollapseMenuItem' })(CollapseMenuItem);

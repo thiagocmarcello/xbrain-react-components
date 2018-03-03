@@ -237,4 +237,4 @@ DashboardDrawer.propTypes = {
   expandMoreIcon: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(DashboardDrawer);
+export default withStyles(styles, { name: 'XDrawer' })(DashboardDrawer);

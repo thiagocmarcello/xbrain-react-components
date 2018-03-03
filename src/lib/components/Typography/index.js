@@ -71,4 +71,4 @@ XTypography.propTypes = {
   gutterTop: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['1x', '2x', '3x'])]),
 };
 
-export default withStyles(styles)(XTypography);
+export default withStyles(styles, { name: 'XTypography' })(XTypography);

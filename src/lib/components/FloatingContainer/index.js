@@ -20,4 +20,4 @@ XFloatingContainer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(XFloatingContainer);
+export default withStyles(styles, { name: 'XFloatingContainer' })(XFloatingContainer);

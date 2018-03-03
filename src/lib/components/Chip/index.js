@@ -147,4 +147,4 @@ XChip.propTypes = {
   size: PropTypes.oneOf([SIZES.SMALL, SIZES.MEDIUM, SIZES.LARGE]),
 };
 
-export default withStyles(styles)(XChip);
+export default withStyles(styles, { name: 'XChip' })(XChip);

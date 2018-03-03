@@ -92,4 +92,4 @@ XTabs.propTypes = {
   tabs: PropTypes.array.isRequired,
 };
 
-export default withStyles(styles)(XTabs);
+export default withStyles(styles, { name: 'XTabs' })(XTabs);

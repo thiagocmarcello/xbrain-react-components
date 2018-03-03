@@ -106,4 +106,4 @@ DisplayInfo.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
-export default withStyles(styles)(DisplayInfo);
+export default withStyles(styles, { name: 'XDisplayInfo' })(DisplayInfo);

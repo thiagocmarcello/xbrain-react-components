@@ -60,4 +60,4 @@ XPaper.propTypes = {
   variant: PropTypes.oneOf([VARIANTS.DEFAULT, VARIANTS.GREY]),
 };
 
-export default withStyles(styles)(XPaper);
+export default withStyles(styles, { name: 'XPaper' })(XPaper);

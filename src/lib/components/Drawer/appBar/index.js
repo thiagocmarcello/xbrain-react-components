@@ -84,4 +84,4 @@ AppBarTemplate.propTypes = {
   menuIcon: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(AppBarTemplate);
+export default withStyles(styles, { name: 'XDrawerAppBar' })(AppBarTemplate);

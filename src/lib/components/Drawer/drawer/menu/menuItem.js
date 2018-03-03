@@ -55,4 +55,4 @@ MenuItem.defaultProps = {
   rightIcon: null,
 };
 
-export default withStyles(styles)(MenuItem);
+export default withStyles(styles, { name: 'XDrawerMenuItem' })(MenuItem);

@@ -150,4 +150,4 @@ TextField.propTypes = {
   ]),
 };
 
-export default withStyles(styles)(TextField);
+export default withStyles(styles, { name: 'XTextField' })(TextField);

@@ -27,4 +27,4 @@ TabContainer.propTypes = {
   disableGutters: PropTypes.bool,
 };
 
-export default withStyles(styles)(TabContainer);
+export default withStyles(styles, { name: 'XTabContainer' })(TabContainer);

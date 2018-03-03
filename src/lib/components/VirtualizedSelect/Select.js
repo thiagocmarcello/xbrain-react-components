@@ -315,4 +315,4 @@ Select.propTypes = {
   valueKey: PropTypes.string,
 };
 
-export default withStyles(styles)(Select);
+export default withStyles(styles, { name: 'XVirtualizedSelect' })(Select);

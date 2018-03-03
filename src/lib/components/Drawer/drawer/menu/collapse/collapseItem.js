@@ -103,4 +103,4 @@ CollapseItem.propTypes = {
   expandMoreIcon: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(CollapseItem);
+export default withStyles(styles, { name: 'XDrawerCallapseItem' })(CollapseItem);

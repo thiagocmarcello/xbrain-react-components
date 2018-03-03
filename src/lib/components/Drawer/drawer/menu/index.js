@@ -54,4 +54,4 @@ Menu.propTypes = {
   expandMoreIcon: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(Menu);
+export default withStyles(styles, { name: 'XDrawerMenu' })(Menu);

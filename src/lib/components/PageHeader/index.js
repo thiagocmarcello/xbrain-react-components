@@ -102,7 +102,7 @@ const PageHeaderHOC = ({ image, ...rest }) => {
     classes: PropTypes.object.isRequired,
   };
 
-  const PageHeaderContainer = withStyles(styles)(PageHeader);
+  const PageHeaderContainer = withStyles(styles, { name: 'XPageHeader' })(PageHeader);
   return <PageHeaderContainer />;
 };
 

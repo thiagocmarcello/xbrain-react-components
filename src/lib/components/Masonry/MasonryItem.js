@@ -31,4 +31,4 @@ MasonryItem.propTypes = {
   gutterBottom: PropTypes.bool,
 };
 
-export default withStyles(styles)(MasonryItem);
+export default withStyles(styles, { name: 'XMasonryItem' })(MasonryItem);
