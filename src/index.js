@@ -10,6 +10,7 @@ import XFloatingContainer from './lib/components/FloatingContainer';
 import XLogoProgress from './lib/components/LogoProgress';
 import XMasonry from './lib/components/Masonry/Masonry';
 import XMasonryItem from './lib/components/Masonry/MasonryItem';
+import XNoResultSvg from './lib/components/Svg/NoResult';
 import XPageHeader from './lib/components/PageHeader';
 import XPaper from './lib/components/Paper';
 import XSelect from './lib/components/Select';
@@ -33,6 +34,7 @@ export {
   XLogoProgress,
   XMasonry,
   XMasonryItem,
+  XNoResultSvg,
   XPageHeader,
   XPaper,
   XSelect,
