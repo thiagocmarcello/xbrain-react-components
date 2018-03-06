@@ -60,17 +60,18 @@ class XTabs extends PureComponent {
         <div className={borderBottomStyle}>
           <Tabs value={tabActive} onChange={this.handleChange} {...rest}>
             {tabs.map((tab, index) => {
+              if (!tab) return null;
               const key = `tabkey-${index}`;
               const label = tab.label ? { label: tab.label } : null;
               return <Tab key={key} {...label} disabled={tab.disabled} {...tab.tabProps} />;
             })}
           </Tabs>
         </div>
-        {
+        {currentTab && (
           <TabContainer disableGutters={currentTab.disableGutters}>
             {currentTab.component}
           </TabContainer>
-        }
+        )}
       </Fragment>
     );
   }
