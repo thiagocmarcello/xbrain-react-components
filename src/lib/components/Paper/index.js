@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
 const styles = theme => ({
-  paper: theme.mixins.gutters({
-    paddingTop: theme.spacing.unit * 3,
-    paddingBottom: theme.spacing.unit * 3,
-  }),
+  paper: {
+    padding: theme.spacing.unit * 2,
+  },
   default: {
     backgroundColor: theme.palette.common.white,
   },
