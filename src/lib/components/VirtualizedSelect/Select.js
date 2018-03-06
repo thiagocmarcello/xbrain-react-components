@@ -36,6 +36,9 @@ const styles = theme => ({
       transition: theme.transitions.create(['border-color', 'box-shadow']),
       fontFamily: theme.typography.fontFamily,
       fontSize: theme.typography.pxToRem(14),
+      '& .Select-input:focus': {
+        background: 'inherit',
+      },
     },
     '.Select-multi-value-wrapper': {
       alignItems: 'center',
