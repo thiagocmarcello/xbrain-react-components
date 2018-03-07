@@ -74,10 +74,10 @@ const styles = theme => ({
     border: 0,
     cursor: 'pointer',
     display: 'flex',
-    paddingRight: 0,
-    paddingLeft: 0,
-    paddingTop: 0,
     paddingBottom: 0,
+    paddingLeft: 0,
+    paddingRight: 0,
+    paddingTop: 0,
     width: '100%',
     '&:hover': {
       textDecoration: 'none',
@@ -96,6 +96,8 @@ const styles = theme => ({
   },
   drawerFooterButton: {
     justifyContent: 'flex-end',
+    paddingLeft: theme.spacing.unit * 2,
+    paddingRight: theme.spacing.unit * 2,
   },
   drawerFooterIcon: {
     color: theme.palette.common.minFaintWhite,

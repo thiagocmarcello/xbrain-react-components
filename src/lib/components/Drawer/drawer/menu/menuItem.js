@@ -32,7 +32,7 @@ class MenuItem extends PureComponent {
     );
 
     return (
-      <ListItem button onClick={onClick}>
+      <ListItem classes={{ gutters: classes.menuListItemGutters }} button onClick={onClick}>
         {content}
       </ListItem>
     );

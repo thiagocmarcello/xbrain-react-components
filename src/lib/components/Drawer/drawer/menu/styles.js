@@ -28,6 +28,10 @@ const styles = theme => ({
   collapseInner: {
     backgroundColor: darken(theme.palette.grey[900], 0.3),
   },
+  menuListItemGutters: {
+    paddingLeft: theme.spacing.unit * 2,
+    paddingRight: theme.spacing.unit * 2,
+  },
 });
 
 export default styles;
