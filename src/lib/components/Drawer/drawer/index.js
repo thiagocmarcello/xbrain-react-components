@@ -58,7 +58,6 @@ const styles = theme => ({
     ...theme.mixins.toolbar,
     alignItems: 'center',
     backgroundColor: lighten(theme.palette.grey[900], 0.06),
-    borderBottom: `1px solid ${theme.palette.common.faintWhite}`,
     color: theme.palette.common.white,
     display: 'flex',
   },
