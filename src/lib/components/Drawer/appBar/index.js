@@ -53,6 +53,7 @@ class AppBarTemplate extends PureComponent {
     } = this.props;
     return (
       <AppBar
+        id="xdrawer-app-bar"
         position="fixed"
         className={classNames(classes.appBar, openMd && classes.appBarShift)}
       >
