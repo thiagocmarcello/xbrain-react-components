@@ -12,7 +12,7 @@ const drawerClose = 56;
 
 const styles = theme => ({
   drawerPaper: {
-    background: theme.palette.grey[900],
+    background: '#262f3d',
     border: 0,
     overflowX: 'hidden',
     width: theme.drawer.width,
@@ -55,9 +55,9 @@ const styles = theme => ({
     }),
   },
   drawerHeader: {
+    backgroundColor: lighten('#262f3d', 0.06),
     ...theme.mixins.toolbar,
     alignItems: 'center',
-    backgroundColor: lighten(theme.palette.grey[900], 0.06),
     color: theme.palette.common.white,
     display: 'flex',
   },
@@ -87,7 +87,6 @@ const styles = theme => ({
     fontSize: theme.typography.pxToRem(20),
   },
   drawerFooter: {
-    background: theme.palette.grey[900],
     borderTop: `1px solid ${theme.palette.common.faintWhite}`,
     bottom: 0,
     position: 'absolute',

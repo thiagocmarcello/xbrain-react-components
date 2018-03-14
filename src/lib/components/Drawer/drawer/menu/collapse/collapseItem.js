@@ -54,7 +54,11 @@ class CollapseItem extends PureComponent {
 
     return children.map(({ name, onClick }) => (
       <CollapseMenuItem key={name} onClick={() => this.handleChildrenClick(onClick)}>
-        <ListItemText classes={{ primary: classes.listItemText }} primary={name} />
+        <ListItemText
+          inset
+          classes={{ primary: classes.listItemText, inset: classes.listItemInset }}
+          primary={name}
+        />
       </CollapseMenuItem>
     ));
   };

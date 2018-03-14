@@ -11,8 +11,7 @@ const styles = theme => ({
     color: theme.palette.common.minFaintWhite,
   },
   collapseListItemText: {
-    fontWeight: 500,
-    fontSize: theme.typography.pxToRem(13),
+    fontSize: theme.typography.pxToRem(14),
     color: theme.palette.common.minFaintWhite,
   },
   listItemText: {
@@ -22,11 +21,16 @@ const styles = theme => ({
   listItemRoot: {
     paddingLeft: 0,
   },
+  listItemInset: {
+    '&:first-child': {
+      paddingLeft: theme.spacing.unit * 2,
+    },
+  },
   dividerDefault: {
     backgroundColor: theme.palette.common.faintWhite,
   },
   collapseInner: {
-    backgroundColor: darken(theme.palette.grey[900], 0.3),
+    backgroundColor: '#19212b',
   },
   menuListItemGutters: {
     paddingLeft: theme.spacing.unit * 2,

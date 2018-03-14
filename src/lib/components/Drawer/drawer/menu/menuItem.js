@@ -25,7 +25,7 @@ class MenuItem extends PureComponent {
             root: classes.listItemRoot,
           }}
           inset
-          primary={name.toUpperCase()}
+          primary={name}
         />
         {rightIcon && this.renderIcon(rightIcon)}
       </Fragment>
