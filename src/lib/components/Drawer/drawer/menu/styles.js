@@ -1,5 +1,3 @@
-import { darken } from 'material-ui/styles/colorManipulator';
-
 const styles = theme => ({
   list: {
     width: '100%',
