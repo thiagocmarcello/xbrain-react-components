@@ -20,6 +20,7 @@ const styles = theme => ({
     width: theme.spacing.unit * 5,
   },
   dropzone: {
+    cursor: 'pointer',
     marginTop: theme.spacing.unit * 3,
   },
   dropZoneTableFiles: {
@@ -273,7 +274,7 @@ XDropZone.defaultProps = {
   iconStyle: null,
   labelPlural: 'Arraste e solte ou clique para selecionar os arquivos',
   labelSingular: 'Arraste e solte ou clique para selecionar o arquivo',
-  maxSize: null,
+  maxSize: Infinity,
   multiple: false,
   onChange: null,
   onDragEnter: null,
