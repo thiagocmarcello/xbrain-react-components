@@ -25,14 +25,17 @@ const styles = theme => ({
   },
   text: {
     flex: 1,
+    overflowWrap: 'break-word',
+    width: '100%',
+    wordWrap: 'break-word',
   },
   startAdornment: {
-    marginRight: theme.spacing.unit / 2,
     display: 'inline-flex',
+    marginRight: theme.spacing.unit / 2,
   },
   endAdornment: {
-    marginLeft: theme.spacing.unit / 2,
     display: 'inline-flex',
+    marginLeft: theme.spacing.unit / 2,
   },
 });
 
