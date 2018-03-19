@@ -59,32 +59,45 @@ const TEXT_TRANSFORM_ANY = 'any';
 const TEXT_TRANSFORM_LOWERCASE = 'lowercase';
 const TEXT_TRANSFORM_UPPERCASE = 'uppercase';
 
-const normalizeValue = (value, { textTransform, type }) => {
-  if (typeof value !== 'string' || type === 'password') return value;
-
-  switch (textTransform) {
-    case TEXT_TRANSFORM_UPPERCASE:
-      return value.toUpperCase();
-    case TEXT_TRANSFORM_LOWERCASE:
-      return value.toLowerCase();
-    default:
-      return value;
-  }
-};
-
 const TextField = ({
   classes,
-  name,
-  InputProps,
   error,
-  textTransform,
   InputLabelProps,
-  onChange,
-  type,
+  InputProps,
   multiline,
+  name,
+  onBlur,
+  onChange,
+  textTransform,
+  trimOnBlur,
+  type,
   ...props
 }) => {
   const rows = multiline ? { rows: 2 } : null;
+
+  const normalizeValue = (value) => {
+    if (typeof value !== 'string' || type === 'password') return value;
+
+    switch (textTransform) {
+      case TEXT_TRANSFORM_UPPERCASE:
+        return value.toUpperCase();
+      case TEXT_TRANSFORM_LOWERCASE:
+        return value.toLowerCase();
+      default:
+        return value;
+    }
+  };
+
+  const handleBlur = (value) => {
+    if (typeof value !== 'string' || type === 'password') return value;
+
+    if (trimOnBlur) {
+      return value.trim();
+    }
+
+    return value;
+  };
+
   return (
     <TextFieldMui
       error={error}
@@ -110,13 +123,20 @@ const TextField = ({
       {...props}
       onChange={(event) => {
         const newEvent = event;
-        newEvent.target.value = normalizeValue(event.target.value, {
-          textTransform,
-          type,
-        });
+
+        newEvent.target.value = normalizeValue(newEvent.target.value);
 
         if (onChange) {
           onChange(newEvent);
+        }
+      }}
+      onBlur={(event) => {
+        const newEvent = event;
+
+        newEvent.target.value = handleBlur(newEvent.target.value);
+
+        if (onBlur) {
+          onBlur(newEvent);
         }
       }}
     />
@@ -129,8 +149,10 @@ TextField.defaultProps = {
   InputProps: null,
   multiline: false,
   name: null,
+  onBlur: null,
   onChange: null,
   textTransform: TEXT_TRANSFORM_UPPERCASE,
+  trimOnBlur: true,
   type: 'text',
 };
 
@@ -141,7 +163,9 @@ TextField.propTypes = {
   InputProps: PropTypes.object,
   multiline: PropTypes.bool,
   name: PropTypes.string,
+  onBlur: PropTypes.func,
   onChange: PropTypes.func,
+  trimOnBlur: PropTypes.bool,
   type: PropTypes.string,
   textTransform: PropTypes.oneOf([
     TEXT_TRANSFORM_ANY,
