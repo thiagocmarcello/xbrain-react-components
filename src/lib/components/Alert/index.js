@@ -77,16 +77,6 @@ class XAlert extends PureComponent {
     }
   };
 
-  getContainer = (type) => {
-    const { classes } = this.props;
-    switch (type) {
-      case 'default':
-        return classes.container;
-      default:
-        return classes.container;
-    }
-  };
-
   render() {
     const {
       classes, square, gutterBottom, ...rest

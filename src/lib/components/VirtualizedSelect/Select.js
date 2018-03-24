@@ -174,7 +174,7 @@ class Select extends PureComponent {
 
   renderLabel = () => {
     const { name, label, required } = this.props;
-    return (
+    return label && (
       <InputLabel error={false} shrink htmlFor={name}>
         {label}
         {required && ' *'}
@@ -227,29 +227,30 @@ class Select extends PureComponent {
 
   render() {
     const {
-      classes,
-      label,
-      name,
-      multiple,
       avatar,
+      classes,
       clearAllText,
-      noResultsText,
-      placeholder,
-      options,
-      required,
-      error,
       creatable,
+      error,
+      label,
       labelKey,
+      multiple,
+      name,
+      noResultsText,
+      options,
+      placeholder,
+      required,
       valueKey,
       ...rest
     } = this.props;
 
     const { filterOptions } = this.state;
     const selectComponent = creatable ? { selectComponent: Creatable } : null;
+    const rootStyle = label ? classes.root : '';
 
     return (
       <FormControl fullWidth>
-        <div className={classes.root}>
+        <div className={rootStyle}>
           {this.renderLabel()}
           <VirtualizedSelect
             arrowRenderer={this.renderArrow}
@@ -290,6 +291,7 @@ Select.defaultProps = {
   clearAllText: 'Remover todos',
   creatable: false,
   error: false,
+  label: null,
   labelKey: 'label',
   multiple: false,
   name: null,
@@ -306,7 +308,7 @@ Select.propTypes = {
   clearAllText: PropTypes.string,
   creatable: PropTypes.bool,
   error: PropTypes.bool,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   labelKey: PropTypes.string,
   multiple: PropTypes.bool,
   name: PropTypes.string,

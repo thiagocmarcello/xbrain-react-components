@@ -17,6 +17,7 @@ const styles = (theme) => {
     gutterBottom1x: { marginBottom: GUTTER_SIZE * 1 },
     gutterBottom2x: { marginBottom: GUTTER_SIZE * 2 },
     gutterBottom3x: { marginBottom: GUTTER_SIZE * 3 },
+    onClick: { cursor: 'pointer' },
   };
 };
 
@@ -46,8 +47,10 @@ class XTypography extends PureComponent {
       children, divider, classes, gutterBottom, gutterTop, className, ...rest
     } = this.props;
 
+    const onClickStyle = this.props.onClick ? classes.onClick : '';
+
     return (
-      <Typography className={`${this.getGutterStyle()} ${className}`} {...rest}>
+      <Typography className={classNames(this.getGutterStyle(), onClickStyle, className)} {...rest}>
         {children}
         {divider && <Divider className={classes.divider} component="span" />}
       </Typography>
@@ -60,6 +63,7 @@ XTypography.defaultProps = {
   divider: false,
   gutterBottom: false,
   gutterTop: false,
+  onClick: null,
 };
 
 XTypography.propTypes = {
@@ -69,6 +73,7 @@ XTypography.propTypes = {
   divider: PropTypes.bool,
   gutterBottom: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['1x', '2x', '3x'])]),
   gutterTop: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['1x', '2x', '3x'])]),
+  onClick: PropTypes.func,
 };
 
 export default withStyles(styles, { name: 'XTypography' })(XTypography);
