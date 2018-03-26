@@ -110,7 +110,7 @@ const styles = theme => ({
     '.Select.is-disabled > .Select-control': {
       background: theme.palette.grey[50],
     },
-    '.Select.is-disabled .Select-placeholder': {
+    '.Select.is-disabled .Select-placeholder, .Select.is-disabled .Select-value': {
       color: theme.palette.text.disabled,
       opacity: 1,
     },
