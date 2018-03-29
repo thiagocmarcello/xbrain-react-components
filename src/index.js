@@ -19,6 +19,7 @@ import XSelect from './lib/components/Select';
 import XTableEmpty from './lib/components/TableEmpty';
 import XTableHead from './lib/components/TableHead';
 import XTabs from './lib/components/Tabs';
+import XTemplate from './lib/components/Template';
 import XTextField from './lib/components/TextField';
 import XTypography from './lib/components/Typography';
 import XVirtualizedSelect from './lib/components/VirtualizedSelect';
@@ -45,6 +46,7 @@ export {
   XTableEmpty,
   XTableHead,
   XTabs,
+  XTemplate,
   XTextField,
   XTypography,
   XVirtualizedSelect,
