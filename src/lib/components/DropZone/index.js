@@ -223,6 +223,7 @@ class XDropZone extends PureComponent {
       labelSingular,
       style,
       theme,
+      showFiles,
       ...rest
     } = this.props;
 
@@ -258,7 +259,7 @@ class XDropZone extends PureComponent {
             }}
           />
         </Dropzone>
-        {this.renderListFiles(files)}
+        {showFiles && this.renderListFiles(files)}
       </FormControl>
     );
   }
@@ -281,6 +282,7 @@ XDropZone.defaultProps = {
   onDragLeave: null,
   onDrop: null,
   required: false,
+  showFiles: true,
   style: null,
 };
 
@@ -304,6 +306,7 @@ XDropZone.propTypes = {
   onDragLeave: PropTypes.func,
   onDrop: PropTypes.func,
   required: PropTypes.bool,
+  showFiles: PropTypes.bool,
   style: PropTypes.object,
   theme: PropTypes.object.isRequired,
 };
