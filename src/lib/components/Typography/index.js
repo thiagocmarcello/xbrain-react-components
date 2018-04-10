@@ -11,12 +11,15 @@ const styles = (theme) => {
       display: 'block',
       marginTop: GUTTER_SIZE,
     },
+
     gutterTop1x: { marginTop: GUTTER_SIZE * 1 },
     gutterTop2x: { marginTop: GUTTER_SIZE * 2 },
     gutterTop3x: { marginTop: GUTTER_SIZE * 3 },
+
     gutterBottom1x: { marginBottom: GUTTER_SIZE * 1 },
     gutterBottom2x: { marginBottom: GUTTER_SIZE * 2 },
     gutterBottom3x: { marginBottom: GUTTER_SIZE * 3 },
+
     onClick: { cursor: 'pointer' },
   };
 };
@@ -24,13 +27,10 @@ const styles = (theme) => {
 class XTypography extends PureComponent {
   getGutterStyle = () => {
     const { gutterBottom, gutterTop, classes } = this.props;
-
-    const gutterTopSize = typeof gutterTop === 'boolean' && gutterTop ? '1x' : gutterTop;
-
-    const gutterBottomSize =
-      typeof gutterBottom === 'boolean' && gutterBottom ? '1x' : gutterBottom;
-
+    const gutterTopSize = typeof gutterTop === 'boolean' ? '1x' : gutterTop;
+    const gutterBottomSize = typeof gutterBottom === 'boolean' ? '1x' : gutterBottom;
     const classNamesList = [];
+
     if (gutterTop) {
       classNamesList.push(classes[`gutterTop${gutterTopSize}`]);
     }

@@ -27,7 +27,13 @@ class XConfirmDialog extends PureComponent {
 
   render() {
     const {
-      title, description, open, leftButtonText, rightButtonText,
+      description,
+      leftButtonProps,
+      leftButtonText,
+      open,
+      rightButtonProps,
+      rightButtonText,
+      title,
     } = this.props;
 
     return (
@@ -42,10 +48,10 @@ class XConfirmDialog extends PureComponent {
           <DialogContentText>{description}</DialogContentText>
         </DialogContent>
         <DialogActions>
-          <XButton size="small" variant="ghost" onClick={this.handleClose}>
+          <XButton size="small" variant="ghost" onClick={this.handleClose} {...leftButtonProps}>
             {leftButtonText}
           </XButton>
-          <XButton size="small" onClick={this.handleConfirm} autoFocus>
+          <XButton size="small" onClick={this.handleConfirm} autoFocus {...rightButtonProps}>
             {rightButtonText}
           </XButton>
         </DialogActions>
@@ -56,16 +62,20 @@ class XConfirmDialog extends PureComponent {
 
 XConfirmDialog.defaultProps = {
   data: null,
+  leftButtonProps: null,
   leftButtonText: 'cancelar',
+  rightButtonProps: null,
   rightButtonText: 'ok',
 };
 
 XConfirmDialog.propTypes = {
   data: PropTypes.object,
   description: PropTypes.string.isRequired,
+  leftButtonProps: PropTypes.object,
   leftButtonText: PropTypes.string,
   onClick: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
+  rightButtonProps: PropTypes.object,
   rightButtonText: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
