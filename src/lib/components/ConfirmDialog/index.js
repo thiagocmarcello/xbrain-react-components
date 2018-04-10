@@ -34,6 +34,7 @@ class XConfirmDialog extends PureComponent {
       rightButtonProps,
       rightButtonText,
       title,
+      ...rest
     } = this.props;
 
     return (
@@ -42,6 +43,7 @@ class XConfirmDialog extends PureComponent {
         onClose={this.handleClose}
         aria-labelledby="confirm-dialog-title"
         aria-describedby="confirm-dialog-description"
+        {...rest}
       >
         <DialogTitle>{title}</DialogTitle>
         <DialogContent>
