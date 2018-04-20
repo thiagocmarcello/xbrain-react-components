@@ -11,6 +11,11 @@ const styles = () => ({
   rootIconButtonGutterLess: {
     width: 'auto',
   },
+  disableButtonHover: {
+    '&:hover': {
+      backgroundColor: 'transparent !important',
+    },
+  },
 });
 
 class ActionButton extends PureComponent {
@@ -32,6 +37,8 @@ class ActionButton extends PureComponent {
       options, icon: Icon, classes, gutter,
     } = this.props;
 
+    const gutterStyle = !gutter ? classes.rootIconButtonGutterLess : null;
+
     return (
       <div>
         <IconButton
@@ -39,7 +46,7 @@ class ActionButton extends PureComponent {
           aria-owns={anchorEl ? 'action-menu' : null}
           aria-haspopup="true"
           onClick={this.handleClick}
-          classes={!gutter ? { root: classes.rootIconButtonGutterLess } : null}
+          classes={{ root: { ...gutterStyle, ...classes.disableButtonHover } }}
         >
           <Icon />
         </IconButton>
