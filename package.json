@@ -1,6 +1,6 @@
 {
   "name": "xbrain-react-components",
-  "version": "1.1.25",
+  "version": "1.1.26",
   "description": "Useful React Components for daily use.",
   "main": "dist/xbrain-react-components.min.js",
   "directories": {
@@ -15,11 +15,7 @@
     "type": "git",
     "url": "https://github.com/xbrain-dev/xbrain-react-components.git"
   },
-  "keywords": [
-    "xbrain",
-    "xbrain react components",
-    "react components"
-  ],
+  "keywords": ["xbrain", "xbrain react components", "react components"],
   "author": "Diego Rodrigues Vieira",
   "license": "MIT",
   "dependencies": {
