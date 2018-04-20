@@ -46,7 +46,9 @@ class ActionButton extends PureComponent {
           aria-owns={anchorEl ? 'action-menu' : null}
           aria-haspopup="true"
           onClick={this.handleClick}
-          classes={{ root: { ...gutterStyle, ...classes.disableButtonHover } }}
+          className={classes.disableButtonHover}
+          classes={{ root: gutterStyle }}
+          disableRipple
         >
           <Icon />
         </IconButton>
