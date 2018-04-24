@@ -7,6 +7,10 @@ import React, { PureComponent } from 'react';
 const styles = (theme) => {
   const GUTTER_SIZE = theme.spacing.unit;
   return {
+    inline: {
+      display: 'inline',
+    },
+
     divider: {
       display: 'block',
       marginTop: GUTTER_SIZE,
@@ -44,13 +48,25 @@ class XTypography extends PureComponent {
 
   render() {
     const {
-      children, divider, classes, gutterBottom, gutterTop, className, ...rest
+      children,
+      divider,
+      classes,
+      gutterBottom,
+      gutterTop,
+      className,
+      inline,
+      ...rest
     } = this.props;
 
     const onClickStyle = this.props.onClick ? classes.onClick : '';
+    const rootStyle = inline ? classes.inline : null;
 
     return (
-      <Typography className={classNames(this.getGutterStyle(), onClickStyle, className)} {...rest}>
+      <Typography
+        classes={{ root: rootStyle }}
+        className={classNames(this.getGutterStyle(), onClickStyle, className)}
+        {...rest}
+      >
         {children}
         {divider && <Divider className={classes.divider} component="span" />}
       </Typography>
@@ -63,6 +79,7 @@ XTypography.defaultProps = {
   divider: false,
   gutterBottom: false,
   gutterTop: false,
+  inline: false,
   onClick: null,
 };
 
@@ -73,6 +90,7 @@ XTypography.propTypes = {
   divider: PropTypes.bool,
   gutterBottom: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['1x', '2x', '3x'])]),
   gutterTop: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['1x', '2x', '3x'])]),
+  inline: PropTypes.bool,
   onClick: PropTypes.func,
 };
 
