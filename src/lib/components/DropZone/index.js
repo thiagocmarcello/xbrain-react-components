@@ -79,6 +79,14 @@ class XDropZone extends PureComponent {
 
   initialize = () => this.setState({ text: this.getCleanLabel() });
 
+  reset = () => {
+    const { onChange } = this.props;
+    if (onChange) {
+      onChange('');
+    }
+    this.setState({ files: [] });
+  };
+
   handleDragEnter = () => {
     this.setState({
       text: this.getDirtyLabel(),
