@@ -249,7 +249,7 @@ class Select extends PureComponent {
     const rootStyle = label ? classes.root : '';
 
     return (
-      <FormControl fullWidth>
+      <FormControl fullWidth className={error ? 'has-error' : ''}>
         <div className={rootStyle}>
           {this.renderLabel()}
           <VirtualizedSelect
