@@ -67,7 +67,7 @@ const XLogoProgressHOC = ({ image }) => {
             onEntered={this.handleEndAnimation}
           >
             <div>
-              <img alt={image.alt} src={image.src} height={image.height} />
+              {image && <img alt={image.alt} src={image.src} height={image.height} />}
               <Fade appear in={loadingProgress} timeout={shortest} unmountOnExit>
                 <LinearProgress classes={{ root: classes.rootLinearProgres }} color="primary" />
               </Fade>
@@ -88,12 +88,16 @@ const XLogoProgressHOC = ({ image }) => {
   return <LogoProgressContainer />;
 };
 
+XLogoProgressHOC.defaultProps = {
+  image: null,
+};
+
 XLogoProgressHOC.propTypes = {
   image: PropTypes.shape({
     alt: PropTypes.string.isRequired,
     height: PropTypes.number.isRequired,
     src: PropTypes.node.isRequired,
-  }).isRequired,
+  }),
 };
 
 export default XLogoProgressHOC;
