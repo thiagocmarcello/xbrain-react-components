@@ -12,6 +12,7 @@ const XLogoProgressHOC = ({ image }) => {
 
     return {
       root: {
+        width: image ? 'auto' : 250,
         height: image ? (image.height + progressHeight + gutter) : progressHeight,
       },
       rootLinearProgres: {
