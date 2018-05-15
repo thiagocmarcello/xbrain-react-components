@@ -1,7 +1,7 @@
 const path = require('path');
-const webpack = require('webpack');
 
 const config = {
+  mode: 'production',
   entry: ['./src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -57,7 +57,9 @@ const config = {
       },
     ],
   },
-  plugins: [new webpack.optimize.UglifyJsPlugin({ output: { comments: false } })],
+  optimization: {
+    minimize: true,
+  },
 };
 
 module.exports = config;
