@@ -79,7 +79,7 @@ class XAlert extends PureComponent {
 
   render() {
     const {
-      classes, square, gutterBottom, ...rest
+      classes, square, gutterBottom, className, ...rest
     } = this.props;
 
     const { root } = classes;
@@ -87,7 +87,12 @@ class XAlert extends PureComponent {
     const squareStyle = square ? classes.square : '';
     const gutterStyle = gutterBottom ? classes.gutterBottom : '';
 
-    return <div className={classNames(root, colorStyle, squareStyle, gutterStyle)} {...rest} />;
+    return (
+      <div
+        className={classNames(root, colorStyle, squareStyle, gutterStyle, className)}
+        {...rest}
+      />
+    );
   }
 }
 
@@ -95,10 +100,12 @@ XAlert.defaultProps = {
   variant: PropTypes.default,
   square: false,
   gutterBottom: true,
+  className: '',
 };
 
 XAlert.propTypes = {
   classes: PropTypes.object.isRequired,
+  className: PropTypes.string,
   gutterBottom: PropTypes.bool,
   square: PropTypes.bool,
   variant: PropTypes.oneOf([
