@@ -1,6 +1,6 @@
 import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import Tabs, { Tab } from 'material-ui/Tabs';
 
 import TabContainer from './TabContainer';
@@ -25,7 +25,7 @@ const styles = theme => ({
     zIndex: 2,
   },
   toolbar: {
-    ...theme.mixins.toolbar,
+    height: 48,
   },
 });
 
@@ -72,24 +72,28 @@ class XTabs extends PureComponent {
     const borderBottomStyle = borderBottom ? classes.borderBottom : '';
 
     return (
-      <div className={fixed ? classes.fixed : ''}>
-        <div className={borderBottomStyle}>
-          <Tabs value={tabActive} onChange={this.handleChange} {...rest}>
-            {tabs.map((tab, index) => {
-              if (!tab) return null;
-              const key = `tabkey-${index}`;
-              const label = tab.label ? { label: tab.label } : null;
-              return <Tab key={key} {...label} disabled={tab.disabled} {...tab.tabProps} />;
-            })}
-          </Tabs>
+      <Fragment>
+        <div className={fixed ? classes.fixed : ''}>
+          <div className={borderBottomStyle}>
+            <Tabs value={tabActive} onChange={this.handleChange} {...rest}>
+              {tabs.map((tab, index) => {
+                if (!tab) return null;
+                const key = `tabkey-${index}`;
+                const label = tab.label ? { label: tab.label } : null;
+                return <Tab key={key} {...label} disabled={tab.disabled} {...tab.tabProps} />;
+              })}
+            </Tabs>
+          </div>
         </div>
-        {fixed && <div className={classes.toolbar} />}
         {currentTab && (
-          <TabContainer disableGutters={currentTab.disableGutters}>
-            {currentTab.component}
-          </TabContainer>
+          <Fragment>
+            {fixed && <div className={classes.toolbar} />}
+            <TabContainer disableGutters={currentTab.disableGutters}>
+              {currentTab.component}
+            </TabContainer>
+          </Fragment>
         )}
-      </div>
+      </Fragment>
     );
   }
 }
