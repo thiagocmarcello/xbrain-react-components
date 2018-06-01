@@ -1,6 +1,7 @@
 import { fade } from 'material-ui/styles/colorManipulator';
 import { TextField as TextFieldMui } from 'material-ui';
 import { withStyles } from 'material-ui/styles';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -12,6 +13,17 @@ const styles = theme => ({
     },
     '& > div': {
       height: 'auto !important',
+    },
+    '& input + div': {
+      alignSelf: 'center',
+      marginLeft: 0,
+      position: 'absolute',
+      right: 0,
+    },
+    '& input + div > button': {
+      '&:hover': {
+        background: 'transparent',
+      },
     },
   },
   error: {
@@ -48,6 +60,9 @@ const styles = theme => ({
       background: theme.palette.grey[50],
       color: theme.palette.text.disabled,
     },
+  },
+  endAdornment: {
+    paddingRight: 48,
   },
   label: {
     fontSize: theme.typography.pxToRem(13),
@@ -98,6 +113,8 @@ const TextField = ({
     return value;
   };
 
+  const { endAdornment } = InputProps;
+
   return (
     <TextFieldMui
       error={error}
@@ -110,7 +127,7 @@ const TextField = ({
         classes: {
           root: classes.root,
           error: classes.error,
-          input: classes.input,
+          input: classNames(classes.input, endAdornment ? classes.endAdornment : ''),
         },
         ...InputProps,
       }}

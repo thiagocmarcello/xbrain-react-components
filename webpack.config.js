@@ -60,6 +60,7 @@ const config = {
   optimization: {
     minimize: true,
   },
+  performance: { hints: false },
 };
 
 module.exports = config;
