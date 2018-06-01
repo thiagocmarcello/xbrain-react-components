@@ -5,7 +5,6 @@ import XChip from './lib/components/Chip';
 import XConfirmDialog from './lib/components/ConfirmDialog';
 import XDisplayInfo from './lib/components/DisplayInfo';
 import XDotsBlink from './lib/components/DotsBlink';
-import XDrawer from './lib/components/Drawer';
 import XDropZone from './lib/components/DropZone';
 import XExternalRedirect from './lib/components/ExternalRedirect';
 import XFloatingContainer from './lib/components/FloatingContainer';
@@ -32,7 +31,6 @@ export {
   XConfirmDialog,
   XDisplayInfo,
   XDotsBlink,
-  XDrawer,
   XDropZone,
   XExternalRedirect,
   XFloatingContainer,
