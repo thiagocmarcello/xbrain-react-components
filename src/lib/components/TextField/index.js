@@ -113,8 +113,6 @@ const TextField = ({
     return value;
   };
 
-  const { endAdornment } = InputProps;
-
   return (
     <TextFieldMui
       error={error}
@@ -127,7 +125,10 @@ const TextField = ({
         classes: {
           root: classes.root,
           error: classes.error,
-          input: classNames(classes.input, endAdornment ? classes.endAdornment : ''),
+          input: classNames(
+            classes.input,
+            InputProps && InputProps.endAdornment ? classes.endAdornment : '',
+          ),
         },
         ...InputProps,
       }}
