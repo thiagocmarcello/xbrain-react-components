@@ -35,11 +35,14 @@ class XTabs extends PureComponent {
   };
 
   componentWillMount() {
-    this.beforeInitialize();
+    this.handleDefaultTab(this.props);
   }
 
-  beforeInitialize = () => {
-    const { defaultTab } = this.props;
+  componentWillReceiveProps(nextProps) {
+    this.handleDefaultTab(nextProps);
+  }
+
+  handleDefaultTab = ({ defaultTab }) => {
     if (defaultTab) {
       this.setState({ tabActive: defaultTab });
     }
