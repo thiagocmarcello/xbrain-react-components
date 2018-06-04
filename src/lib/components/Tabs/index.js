@@ -43,8 +43,15 @@ class XTabs extends PureComponent {
   }
 
   handleDefaultTab = ({ defaultTab }) => {
+    const { onChange } = this.props;
     if (defaultTab) {
-      this.setState({ tabActive: defaultTab });
+      if (this.state.tabActive !== defaultTab) {
+        this.setState({ tabActive: defaultTab }, () => {
+          if (onChange) {
+            onChange(null, defaultTab);
+          }
+        });
+      }
     }
   };
 
