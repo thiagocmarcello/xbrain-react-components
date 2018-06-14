@@ -174,11 +174,13 @@ class Select extends PureComponent {
 
   renderLabel = () => {
     const { name, label, required } = this.props;
-    return label && (
-      <InputLabel error={false} shrink htmlFor={name}>
-        {label}
-        {required && ' *'}
-      </InputLabel>
+    return (
+      label && (
+        <InputLabel error={false} shrink htmlFor={name}>
+          {label}
+          {required && ' *'}
+        </InputLabel>
+      )
     );
   };
 
@@ -241,12 +243,14 @@ class Select extends PureComponent {
       placeholder,
       required,
       valueKey,
+      inputProps,
       ...rest
     } = this.props;
 
     const { filterOptions } = this.state;
     const selectComponent = creatable ? { selectComponent: Creatable } : null;
     const rootStyle = label ? classes.root : '';
+    const newInputProps = inputProps || {};
 
     return (
       <FormControl fullWidth className={error ? 'has-error' : ''}>
@@ -279,6 +283,8 @@ class Select extends PureComponent {
             {...rest}
             {...selectComponent}
             promptTextCreator={this.renderPromptTextCreator}
+            // https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion
+            inputProps={{ autoComplete: new Date().getTime(), ...newInputProps }}
           />
         </div>
       </FormControl>
@@ -291,6 +297,7 @@ Select.defaultProps = {
   clearAllText: 'Remover todos',
   creatable: false,
   error: false,
+  inputProps: null,
   label: null,
   labelKey: 'label',
   multiple: false,
@@ -308,6 +315,7 @@ Select.propTypes = {
   clearAllText: PropTypes.string,
   creatable: PropTypes.bool,
   error: PropTypes.bool,
+  inputProps: PropTypes.object,
   label: PropTypes.string,
   labelKey: PropTypes.string,
   multiple: PropTypes.bool,
