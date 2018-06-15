@@ -185,7 +185,7 @@ class Select extends PureComponent {
   };
 
   renderValue = (valueProps) => {
-    const { avatar, labelKey } = this.props;
+    const { avatar, labelKey, disabled } = this.props;
     const { value, children, onRemove } = valueProps;
 
     const label = value[labelKey];
@@ -199,9 +199,11 @@ class Select extends PureComponent {
             tabIndex={-1}
             label={label && label.toUpperCase()}
             onDelete={(event) => {
-              event.preventDefault();
-              event.stopPropagation();
-              onRemove(value);
+              if (!disabled) {
+                event.preventDefault();
+                event.stopPropagation();
+                onRemove(value);
+              }
             }}
           />
         </div>
@@ -296,6 +298,7 @@ Select.defaultProps = {
   avatar: null,
   clearAllText: 'Remover todos',
   creatable: false,
+  disabled: false,
   error: false,
   inputProps: null,
   label: null,
@@ -314,6 +317,7 @@ Select.propTypes = {
   classes: PropTypes.object.isRequired,
   clearAllText: PropTypes.string,
   creatable: PropTypes.bool,
+  disabled: PropTypes.bool,
   error: PropTypes.bool,
   inputProps: PropTypes.object,
   label: PropTypes.string,

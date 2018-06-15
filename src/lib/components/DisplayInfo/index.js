@@ -25,9 +25,8 @@ const styles = theme => ({
   },
   text: {
     flex: 1,
-    overflowWrap: 'break-word',
     width: '100%',
-    wordWrap: 'break-word',
+    wordBreak: 'break-all',
   },
   startAdornment: {
     display: 'inline-flex',
