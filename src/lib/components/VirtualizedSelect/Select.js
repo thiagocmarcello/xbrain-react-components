@@ -286,7 +286,7 @@ class Select extends PureComponent {
             {...selectComponent}
             promptTextCreator={this.renderPromptTextCreator}
             // https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion
-            inputProps={{ ...newInputProps, autoComplete: new Date().getTime() }}
+            inputProps={{ id: `input-${name}`, ...newInputProps, autoComplete: new Date().getTime() }}
           />
         </div>
       </FormControl>

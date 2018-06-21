@@ -11,21 +11,29 @@ class Menu extends PureComponent {
   renderSingleMenu = ({
     icon, active, name, onClick,
   }) => (
-    <MenuItem key={name} active={active} onClick={onClick} leftIcon={icon} name={name} />
+    <MenuItem
+      active={active}
+      id={`single-menu-${name}`}
+      key={name}
+      leftIcon={icon}
+      name={name}
+      onClick={onClick}
+    />
   );
 
   renderCollapseMenu = (menu) => {
     const {
       openMd, toggleDrawerMd, expandLessIcon, expandMoreIcon,
     } = this.props;
+
     return (
       <CollpseItem
+        data={menu}
         expandLessIcon={expandLessIcon}
         expandMoreIcon={expandMoreIcon}
+        key={menu.name}
         openMd={openMd}
         toggleDrawerMd={toggleDrawerMd}
-        key={menu.name}
-        data={menu}
       />
     );
   };

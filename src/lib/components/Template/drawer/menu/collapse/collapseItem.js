@@ -61,7 +61,11 @@ class CollapseItem extends PureComponent {
     const { classes } = this.props;
 
     return children.map(({ name, onClick }) => (
-      <CollapseMenuItem key={name} onClick={() => this.handleChildrenClick(onClick)}>
+      <CollapseMenuItem
+        id={`collapse-item-${name}`}
+        key={name}
+        onClick={() => this.handleChildrenClick(onClick)}
+      >
         <ListItemText
           inset
           classes={{ primary: classes.listItemText, inset: classes.listItemInset }}
@@ -80,11 +84,12 @@ class CollapseItem extends PureComponent {
     return (
       <Fragment>
         <MenuItem
-          leftIcon={icon}
-          rightIcon={this.getCollapseIcon()}
-          onClick={this.handleClick}
-          name={name}
           active={active}
+          id={`collapse-menu-${name}`}
+          leftIcon={icon}
+          name={name}
+          onClick={this.handleClick}
+          rightIcon={this.getCollapseIcon()}
         />
         <Collapse
           classes={{ wrapperInner: classes.collapseInner }}
